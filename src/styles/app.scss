@@ -1,0 +1,26 @@
+$primary-color: #333;
+$white: #ffffff;
+$small-spacing: 1rem;
+$large-spacing: 4rem;
+$page-width: 1300px;
+$grid-spacing: 1rem;
+$columns: 12;
+$breakpoints: (
+    small: 0px,
+    medium: 350px,
+    large: 700px,
+    xlarge: 1050px
+);
+$body-font-family: "Montserrat", sans-serif;
+$body-color: $primary-color;
+
+// Button
+$button-border-radius: 0;
+
+@import "reset";
+@import "fonts";
+@import "components/grid";
+@import "components/header";
+@import "components/hero";
+@import "components/button";
+@import "components/modal";

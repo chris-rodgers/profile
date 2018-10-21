@@ -1,0 +1,19 @@
+.button {
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: $button-border-radius;
+    text-align: center;
+    margin-bottom: $small-spacing;
+
+    &:not(&--hollow) {
+        background: $primary-color;
+    }
+    &--hollow {
+        color: $primary-color;
+        box-shadow: inset 0 0 0 3px $primary-color;
+    }
+}

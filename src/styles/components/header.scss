@@ -1,0 +1,50 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    // Profile
+    &__profile {
+        display: flex;
+        align-items: center;
+        margin: 1.2rem 0;
+        &__image {
+            width: 64px;
+            height: 64px;
+            background-color: gray;
+            border-radius: 60px;
+            margin-right: 0.8rem;
+        }
+        &__name {
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 18px;
+        }
+        &__role {
+            font-size: 12px;
+            line-height: 22px;
+        }
+    }
+
+    // Navigation
+    &__navigation {
+        &__item {
+            font-weight: bold;
+            margin-left: 2rem;
+            text-transform: uppercase;
+            font-size: 14px;
+
+            &--highlighted {
+                margin-left: 1rem;
+                padding: 0.5rem 1rem;
+                border: 3px solid;
+                border-radius: $button-border-radius;
+            }
+
+            &--current {
+                padding-bottom: 0.2rem;
+                border-bottom: 2px solid;
+            }
+        }
+    }
+}

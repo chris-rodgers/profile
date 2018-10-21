@@ -1,0 +1,34 @@
+//Breakpoints
+@mixin breakpoint($breakpoint) {
+    @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+        @content;
+    }
+}
+
+// The Row
+.row {
+    margin: auto;
+    padding: 0 $grid-spacing/2;
+    overflow: hidden;
+    &.columns {
+        padding: 0 $grid-spacing;
+    }
+    &:not(.expanded) {
+        max-width: $page-width;
+    }
+}
+
+.columns {
+    width: 100%;
+    float: left;
+    padding: 0 $grid-spacing/2;
+    @each $name, $size in $breakpoints {
+        @include breakpoint($name) {
+            @for $i from 1 through $columns {
+                &.#{$name}-#{$i} {
+                    width: percentage($i/$columns);
+                }
+            }
+        }
+    }
+}
