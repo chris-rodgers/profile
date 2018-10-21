@@ -7,14 +7,29 @@ const workItems = [
         name: "Ford"
     },
     {
+        name: "Volvo"
+    },
+    {
         name: "PSA"
     },
     {
-        name: "scania"
+        name: "Scania"
+    },
+    {
+        name: "Kia"
+    },
+    {
+        name: "FCA Group"
+    },
+    {
+        name: "Volkswagen"
     }
 ];
 
 class App extends Component {
+    openWorkModal = e => {
+        this.modal.handleOpen(e);
+    };
     render() {
         return (
             <div>
@@ -67,25 +82,27 @@ class App extends Component {
                             </a>
                             <a
                                 href="#"
-                                className="button hero__button button--hollow"
-                                onClick={e => {
-                                    this.modal.handleOpen(e);
-                                }}>
+                                className="button hero__button button--hollow">
                                 See My Resume
                             </a>
                         </div>
                     </div>
                 </div>
                 <div className="row">
-                    {workItems.map(item => (
-                        <div className="large-3 columns">
-                            <div className="work__item">
-                                <img className="work__item__image" src />
+                    {workItems.map((item, i) => (
+                        <div className="medium-6 large-3 columns">
+                            <div
+                                className="work__item"
+                                onClick={this.openWorkModal}>
+                                <img
+                                    className="work__item__image"
+                                    src={`https://loremflickr.com/320/240/flowers?random=${i}`}
+                                />
                                 <div className="work__item__description">
                                     <div className="work__item__client">
                                         {item.client}
                                     </div>
-                                    <div className="work__item__name">
+                                    <div className="work__item__title">
                                         {item.name}
                                     </div>
                                 </div>

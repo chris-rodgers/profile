@@ -1,5 +1,6 @@
 $primary-color: #232b38;
 $white: #ffffff;
+$light-gray: #eeeeee;
 $small-spacing: 1rem;
 $large-spacing: 4rem;
 $page-width: 1300px;
@@ -25,3 +26,6 @@ $button-border-radius: 0;
 @import "components/button";
 @import "components/modal";
 @import "components/close_button";
+
+// Modules
+@import "/modules/work";

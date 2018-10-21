@@ -1,0 +1,15 @@
+.work {
+    &__item {
+        cursor: pointer;
+        margin-bottom: $small-spacing;
+        &__description {
+            border: 3px solid $light-gray;
+            border-top: none;
+            padding: $small-spacing;
+        }
+        &__title {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+    }
+}

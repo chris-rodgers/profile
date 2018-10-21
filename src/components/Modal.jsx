@@ -6,10 +6,10 @@ const Overlay = posed.div({
     enter: { opacity: 1 }
 });
 
-const Container = posed.div(props => ({
+const Container = posed.div(({ startPosition }) => ({
     exit: {
         opacity: 0,
-        ...props.startPosition
+        ...startPosition
     },
     enter: {
         opacity: 1,
@@ -51,6 +51,7 @@ export default class Modal extends Component {
     render() {
         const { open, startPosition } = this.state;
         const target = {};
+        console.log(startPosition);
 
         return (
             <PoseGroup preEnterPose="exit">
