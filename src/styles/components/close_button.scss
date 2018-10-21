@@ -1,0 +1,12 @@
+.close_button {
+    top: 0;
+    right: 0;
+    margin: $small-spacing;
+    position: absolute;
+    font-size: 4rem;
+    line-height: 0.75;
+
+    &:after {
+        content: "×";
+    }
+}

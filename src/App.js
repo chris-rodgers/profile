@@ -18,7 +18,6 @@ class App extends Component {
     render() {
         return (
             <div>
-                {/* <Modal /> */}
                 <div className="row">
                     <div className="columns">
                         <div className="header">
@@ -55,6 +54,7 @@ class App extends Component {
                 <div className="row">
                     <div className="columns">
                         <div className="hero">
+                            <Modal innerRef={node => (this.modal = node)} />
                             <h1 className="hero__text">
                                 <span>Hello, I'm</span>
                                 <br />
@@ -67,7 +67,10 @@ class App extends Component {
                             </a>
                             <a
                                 href="#"
-                                className="button hero__button button--hollow">
+                                className="button hero__button button--hollow"
+                                onClick={e => {
+                                    this.modal.handleOpen(e);
+                                }}>
                                 See My Resume
                             </a>
                         </div>
