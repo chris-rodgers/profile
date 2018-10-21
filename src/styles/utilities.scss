@@ -1,0 +1,11 @@
+// Text alignment
+$alignments: left, center, right;
+@each $name, $size in $breakpoints {
+    @include breakpoint($name) {
+        @each $alignment in $alignments {
+            &.#{$name}-text-#{$alignment} {
+                text-align: $alignment;
+            }
+        }
+    }
+}

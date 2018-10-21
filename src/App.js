@@ -109,6 +109,9 @@ class App extends Component {
                         </div>
                     ))}
                 </div>
+                <div className="small-text-center">
+                    <button className="button button--hollow">Load more</button>
+                </div>
                 <Modal innerRef={node => (this.modal = node)} />
             </div>
         );

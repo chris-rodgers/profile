@@ -18,8 +18,12 @@ $body-color: $primary-color;
 // Button
 $button-border-radius: 0;
 
+@import "mixins";
 @import "reset";
 @import "fonts";
+@import "utilities";
+
+// Components
 @import "components/grid";
 @import "components/header";
 @import "components/hero";
