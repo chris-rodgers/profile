@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
 import posed, { PoseGroup } from "react-pose";
 
 const Overlay = posed.div({
@@ -53,7 +54,7 @@ export default class Modal extends Component {
         const target = {};
         console.log(startPosition);
 
-        return (
+        return ReactDOM.createPortal(
             <PoseGroup preEnterPose="exit">
                 {open && [
                     <Overlay
@@ -71,7 +72,8 @@ export default class Modal extends Component {
                         />
                     </Container>
                 ]}
-            </PoseGroup>
+            </PoseGroup>,
+            document.getElementById("modal-root")
         );
     }
 }

@@ -69,7 +69,6 @@ class App extends Component {
                 <div className="row">
                     <div className="columns">
                         <div className="hero">
-                            <Modal innerRef={node => (this.modal = node)} />
                             <h1 className="hero__text">
                                 <span>Hello, I'm</span>
                                 <br />
@@ -110,6 +109,7 @@ class App extends Component {
                         </div>
                     ))}
                 </div>
+                <Modal innerRef={node => (this.modal = node)} />
             </div>
         );
     }
