@@ -16,7 +16,7 @@ const Container = posed.div(props => ({
         top: "50%",
         left: "50%",
         width: "100%",
-        height: 600
+        height: "100%"
     }
 }));
 
