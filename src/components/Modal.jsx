@@ -51,8 +51,8 @@ export default class Modal extends Component {
     };
     render() {
         const { open, startPosition } = this.state;
+        const { children } = this.props;
         const target = {};
-        console.log(startPosition);
 
         return ReactDOM.createPortal(
             <PoseGroup preEnterPose="exit">
@@ -70,6 +70,7 @@ export default class Modal extends Component {
                             className="close_button"
                             onClick={this.handleClose}
                         />
+                        {children}
                     </Container>
                 ]}
             </PoseGroup>,
