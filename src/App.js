@@ -62,7 +62,7 @@ class App extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="header__navigation">
+                            <div className="header__navigation show-for-large">
                                 <a className="header__navigation__item header__navigation__item--current">
                                     Work
                                 </a>

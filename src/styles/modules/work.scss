@@ -4,6 +4,7 @@
         margin-bottom: $small-spacing;
         &__image {
             position: relative;
+            overflow: hidden;
         }
 
         &__logo {
@@ -14,6 +15,10 @@
             left: 0;
             fill: #ffffff;
             opacity: 0.8;
+            transition: transform 0.25s ease;
+            &:hover {
+                transform: scale(1.1);
+            }
         }
         &__description {
             border: 3px solid $light-gray;

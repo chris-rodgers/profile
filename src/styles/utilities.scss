@@ -9,3 +9,21 @@ $alignments: left, center, right;
         }
     }
 }
+
+// Visibility
+[class*="show-for"] {
+    display: none;
+}
+[class*="hide-for"] {
+    display: block;
+}
+@each $name, $size in $breakpoints {
+    @include breakpoint($name) {
+        .show-for-#{$name} {
+            display: block;
+        }
+        .hide-for-#{$name} {
+            display: none;
+        }
+    }
+}
