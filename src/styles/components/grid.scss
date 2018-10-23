@@ -2,12 +2,15 @@
 .row {
     margin: auto;
     padding: 0 $grid-spacing/2;
-    overflow: hidden;
     &.columns {
         padding: 0 $grid-spacing;
     }
     &:not(.expanded) {
         max-width: $page-width;
+    }
+    &:after {
+        content: " ";
+        clear: both;
     }
 }
 

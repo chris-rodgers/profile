@@ -2,6 +2,7 @@ $primary-color: #232b38;
 $white: #ffffff;
 $light-gray: #eeeeee;
 $small-spacing: 1rem;
+$medium-spacing: 2rem;
 $large-spacing: 4rem;
 $page-width: 1300px;
 $grid-spacing: 1rem;
@@ -30,6 +31,8 @@ $button-border-radius: 0;
 @import "components/button";
 @import "components/modal";
 @import "components/close_button";
+@import "components/typography";
+@import "components/slideshow";
 
 // Modules
 @import "/modules/work";

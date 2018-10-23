@@ -1,4 +1,5 @@
 .work {
+    // Items
     &__item {
         cursor: pointer;
         margin-bottom: $small-spacing;
@@ -30,7 +31,27 @@
             font-size: 1.1rem;
         }
     }
-}
 
-.work_modal {
+    // Modal
+    &__modal {
+        .row,
+        .columns,
+        .modal__container {
+            height: 100%;
+        }
+        &__carousel {
+            height: calc(100% + 1rem);
+            width: calc(100% + 1rem);
+            margin-left: -1rem;
+            margin-top: -1rem;
+
+            .slider,
+            .slider-slide {
+                height: 600px;
+            }
+        }
+        &__content {
+            padding: 2em;
+        }
+    }
 }

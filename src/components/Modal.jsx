@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import posed, { PoseGroup } from "react-pose";
+import classNames from "classnames";
 
 const Overlay = posed.div({
     exit: { opacity: 0 },
@@ -10,14 +11,16 @@ const Overlay = posed.div({
 const Container = posed.div(({ startPosition }) => ({
     exit: {
         opacity: 0,
-        ...startPosition
+        ...startPosition,
+        fontSize: "10%"
     },
     enter: {
         opacity: 1,
         top: "50%",
         left: "50%",
         width: "100%",
-        height: "100%"
+        height: "100%",
+        fontSize: "100%"
     }
 }));
 
@@ -51,7 +54,7 @@ export default class Modal extends Component {
     };
     render() {
         const { open, startPosition } = this.state;
-        const { children } = this.props;
+        const { children, className } = this.props;
         const target = {};
 
         return ReactDOM.createPortal(
@@ -64,7 +67,7 @@ export default class Modal extends Component {
                     />,
                     <Container
                         key="modal"
-                        className="modal__container"
+                        className={classNames("modal__container", className)}
                         startPosition={startPosition}>
                         <button
                             className="close_button"
