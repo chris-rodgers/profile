@@ -148,7 +148,7 @@ class Work extends Component {
                         const clipId = `clip-${item.name}`;
 
                         return (
-                            <div className="medium-6 large-4 columns">
+                            <div className="medium-6 large-3 columns">
                                 <div
                                     className="work__item"
                                     onClick={this.openModal}>
