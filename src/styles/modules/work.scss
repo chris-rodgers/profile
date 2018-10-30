@@ -3,9 +3,14 @@
     &__item {
         cursor: pointer;
         margin-bottom: $small-spacing;
+        border: 3px solid $light-gray;
+        border-radius: $global-radius;
+        overflow: hidden;
         &__image {
             position: relative;
             overflow: hidden;
+            // border-top-left-radius: $global-radius;
+            // border-top-right-radius: $global-radius;
         }
 
         &__logo {
@@ -14,17 +19,21 @@
             position: absolute;
             top: 0;
             left: 0;
-            fill: #ffffff;
-            opacity: 0.8;
+            fill: #fafafa;
             transition: transform 0.25s ease;
+            &__overlay {
+                opacity: 0.8;
+            }
             &:hover {
-                transform: scale(1.1);
+                transform: scale(1);
             }
         }
         &__description {
-            border: 3px solid $light-gray;
-            border-top: none;
-            padding: $small-spacing;
+            // border: 3px solid $light-gray;
+            // border-top: none;
+            padding: 1.2rem $small-spacing;
+            // border-bottom-left-radius: $global-radius;
+            // border-bottom-right-radius: $global-radius;
         }
         &__title {
             font-weight: bold;
@@ -34,24 +43,22 @@
 
     // Modal
     &__modal {
-        .row,
-        .columns,
-        .modal__container {
-            height: 100%;
-        }
+        $height: $page-width/2;
+        height: $height;
+        display: flex;
+        flex-wrap: wrap;
         &__carousel {
-            height: calc(100% + 1rem);
-            width: calc(100% + 1rem);
-            margin-left: -1rem;
-            margin-top: -1rem;
-
-            .slider,
-            .slider-slide {
-                height: 600px;
-            }
+            flex-basis: 200px;
+            flex-shrink: 1;
+            flex-grow: 1;
+            min-width: 500px;
+            align-self: stretch;
         }
         &__content {
-            padding: 2em;
+            flex-basis: 200px;
+            flex-shrink: 1;
+            flex-grow: 1;
+            padding: $small-spacing;
         }
     }
 }

@@ -1,11 +1,11 @@
 $primary-color: #232b38;
 $white: #ffffff;
 $light-gray: #eeeeee;
-$small-spacing: 1rem;
+$small-spacing: 2rem;
 $medium-spacing: 2rem;
 $large-spacing: 4rem;
 $page-width: 1300px;
-$grid-spacing: 1rem;
+$grid-spacing: 2rem;
 $columns: 12;
 $breakpoints: (
     small: 0px,
@@ -15,6 +15,7 @@ $breakpoints: (
 );
 $body-font-family: "Montserrat", sans-serif;
 $body-color: $primary-color;
+$global-radius: 0.6rem;
 
 // Button
 $button-border-radius: 0;

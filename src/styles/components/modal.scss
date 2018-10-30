@@ -11,9 +11,10 @@
         position: fixed;
         background: $white;
         max-width: $page-width;
-        max-height: 600px;
+        max-height: $page-width/2;
         transform: translate(-50%, -50%);
-        padding: $small-spacing 0 0;
+        //padding: $small-spacing 0 0;
         color: #5e616f;
+        height: 100%;
     }
 }

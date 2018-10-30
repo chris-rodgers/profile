@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Carousel from "nuka-carousel";
 import Modal from "../components/Modal";
+import Slideshow from "../components/Slideshow";
 import styled, { keyframes } from "styled-components";
 
 const workItems = [
@@ -147,7 +148,7 @@ class Work extends Component {
                         const clipId = `clip-${item.name}`;
 
                         return (
-                            <div className="medium-6 large-3 columns">
+                            <div className="medium-6 large-4 columns">
                                 <div
                                     className="work__item"
                                     onClick={this.openModal}>
@@ -175,6 +176,7 @@ class Work extends Component {
                                                 </clipPath>
                                             </defs>
                                             <rect
+                                                className="work__item__logo__overlay"
                                                 fill={item.color}
                                                 width="100%"
                                                 height="100%"
@@ -199,31 +201,24 @@ class Work extends Component {
                         );
                     })}
                 </div>
-                <div className="small-text-center">
-                    <button className="button button--hollow">Load more</button>
-                </div>
-                <Modal
-                    className="work__modal"
-                    innerRef={node => (this.workModal = node)}>
-                    <div className="row">
-                        <div className="large-6 columns">
-                            <div className="work__modal__carousel">
-                                <Slideshow
-                                    slides={[
-                                        "/images/work/ford/tradeparts/1.png",
-                                        "/images/work/ford/tradeparts/2.png",
-                                        "/images/work/ford/tradeparts/3.png",
-                                        "/images/work/ford/tradeparts/4.png"
-                                    ]}
-                                    duration={3000}
-                                />
-                            </div>
+
+                <Modal innerRef={node => (this.workModal = node)}>
+                    <div className="work__modal">
+                        <div className="work__modal__carousel">
+                            <Slideshow
+                                slides={[
+                                    "/images/work/ford/tradeparts/1.png",
+                                    "/images/work/ford/tradeparts/2.png",
+                                    "/images/work/ford/tradeparts/3.png",
+                                    "/images/work/ford/tradeparts/4.png"
+                                ]}
+                                duration={3000}
+                            />
                         </div>
-                        <div class="large-6 columns">
-                            <div class="work__modal__content">
-                                <h1>Lorem Ipsum Dolor Sit Amet</h1>
-                                <p>Lorem Ipsum Dolor Set Amet</p>
-                            </div>
+
+                        <div class="work__modal__content">
+                            <h1>Lorem Ipsum Dolor Sit Amet</h1>
+                            <p>Lorem Ipsum Dolor Set Amet</p>
                         </div>
                     </div>
                 </Modal>
@@ -233,45 +228,3 @@ class Work extends Component {
 }
 
 export default Work;
-
-const pan = keyframes`
-  from {background-position: top; }
-  to {background-position: bottom;}
-`;
-
-// Here we create a component that will rotate everything we pass in over two seconds
-const Slide = styled.div`
-    //animation: ${pan} ${props => props.duration}ms ease infinite;
-`;
-
-class Slideshow extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            image: 0
-        };
-    }
-    componentDidMount() {
-        const max = this.props.slides.length - 1;
-        this.timer = setInterval(() => {
-            console.log("test");
-            this.setState(prevState => ({
-                image: prevState.image === max ? 0 : prevState.image + 1
-            }));
-        }, this.props.duration);
-    }
-    componentWillUnmount() {
-        clearInterval(this.timer);
-    }
-    render() {
-        const { slides, duration } = this.props;
-        const { image } = this.state;
-        return (
-            <Slide
-                duration={duration}
-                className="slideshow"
-                style={{ backgroundImage: `url('${slides[image]}')` }}
-            />
-        );
-    }
-}

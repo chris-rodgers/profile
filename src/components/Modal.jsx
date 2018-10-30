@@ -3,8 +3,17 @@ import ReactDOM from "react-dom";
 import posed, { PoseGroup } from "react-pose";
 import classNames from "classnames";
 
+const delay = {
+    transition: {
+        delay: 250
+    }
+};
+
 const Overlay = posed.div({
-    exit: { opacity: 0 },
+    exit: {
+        opacity: 0,
+        ...delay
+    },
     enter: { opacity: 1 }
 });
 
@@ -12,7 +21,8 @@ const Container = posed.div(({ startPosition }) => ({
     exit: {
         opacity: 0,
         ...startPosition,
-        fontSize: "10%"
+        fontSize: "10%",
+        ...delay
     },
     enter: {
         opacity: 1,
@@ -24,10 +34,17 @@ const Container = posed.div(({ startPosition }) => ({
     }
 }));
 
+const Content = posed.div({
+    exit: { opacity: 0 },
+    enter: {
+        opacity: 1,
+        ...delay
+    }
+});
+
 export default class Modal extends Component {
     state = {
-        open: false,
-        boundingClientRect: null
+        open: false
     };
     componentDidMount() {
         this.props.innerRef(this);
@@ -55,7 +72,10 @@ export default class Modal extends Component {
     render() {
         const { open, startPosition } = this.state;
         const { children, className } = this.props;
-        const target = {};
+        const childrenWithProps = React.cloneElement(children, {
+            pose: open ? "enter" : "exit",
+            delay: { ...delay }
+        });
 
         return ReactDOM.createPortal(
             <PoseGroup preEnterPose="exit">
@@ -73,7 +93,8 @@ export default class Modal extends Component {
                             className="close_button"
                             onClick={this.handleClose}
                         />
-                        {children}
+
+                        {childrenWithProps}
                     </Container>
                 ]}
             </PoseGroup>,
