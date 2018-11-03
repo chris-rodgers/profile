@@ -3,6 +3,8 @@ import logo from "./logo.svg";
 import Work from "./modules/Work";
 import About from "./modules/About";
 
+const initialHeaderClass = "header__container--dark header__container--large";
+
 const skills = [
     {
         name: "HTML",
@@ -39,7 +41,7 @@ const skills = [
 
 class App extends Component {
     state = {
-        headerVariant: "dark"
+        headerClasses: initialHeaderClass
     };
     openWorkModal = e => {
         this.workModal.handleOpen(e);
@@ -55,7 +57,7 @@ class App extends Component {
         let headerClasses;
 
         if (scrollY === 0) {
-            headerClasses = "header__container--dark header__container--large";
+            headerClasses = initialHeaderClass;
         } else if (
             scrollY <
             this.hero.offsetHeight - this.header.offsetHeight
