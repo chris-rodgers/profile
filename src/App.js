@@ -137,8 +137,8 @@ class App extends Component {
                                     </div>
                                 </div>
                                 <div className="hero__content__right">
-                                    <form className="hero__contact">
-                                        <h4>Get In Touch</h4>
+                                    <form className="hero__contact text-center">
+                                        <h6>Get In Touch</h6>
                                         <div>
                                             <Input
                                                 type="text"
@@ -160,7 +160,7 @@ class App extends Component {
                                                 type="text"
                                                 name="message"
                                                 id="message"
-                                                rows="8"
+                                                rows="5"
                                                 label="Message"
                                                 element={"textarea"}
                                             />
