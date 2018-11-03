@@ -3,6 +3,22 @@
     align-items: center;
     justify-content: space-between;
 
+    // Container
+    &__container {
+        top: 0;
+        left: 0;
+        width: 100%;
+        position: fixed;
+        z-index: 999;
+        color: $white;
+        background: $black;
+
+        &--white {
+            color: $black;
+            background: $white;
+        }
+    }
+
     // Profile
     &__profile {
         display: flex;
@@ -39,7 +55,7 @@
             font-size: 14px;
 
             &--highlighted {
-                margin-left: 1rem;
+                margin-left: 2rem;
                 padding: 0.5rem 1rem;
                 border: 3px solid;
                 border-radius: $button-border-radius;

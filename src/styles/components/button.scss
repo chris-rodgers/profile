@@ -8,9 +8,10 @@
     border-radius: $button-border-radius;
     text-align: center;
     margin-bottom: $small-spacing;
+    cursor: pointer;
 
     &:not(&--hollow) {
-        background: $primary-color;
+        background: $accent-color;
     }
     &--hollow {
         color: $primary-color;

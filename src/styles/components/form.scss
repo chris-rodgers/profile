@@ -1,0 +1,17 @@
+input,
+textarea {
+    border: none;
+    font-size: 1rem;
+    padding: 10px 5px;
+    background: transparentize($primary-color, 0.5);
+    color: $white;
+    &:not(.button) {
+        box-shadow: inset 0px 1px 2px black;
+    }
+}
+
+label {
+    margin: 0 0 5px;
+    font-weight: lighter;
+    font-size: 0.8rem;
+}

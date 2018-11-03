@@ -1,4 +1,6 @@
 $primary-color: #232b38;
+$accent-color: #f44336;
+$black: #000;
 $white: #ffffff;
 $light-gray: #eeeeee;
 $small-spacing: 2rem;
@@ -34,6 +36,7 @@ $button-border-radius: 0;
 @import "components/close_button";
 @import "components/typography";
 @import "components/slideshow";
+@import "components/form";
 
 // Modules
 @import "/modules/work";

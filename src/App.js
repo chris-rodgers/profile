@@ -44,61 +44,98 @@ class App extends Component {
     render() {
         return (
             <div>
-                <div className="row">
-                    <div className="columns">
-                        <div className="header">
-                            <div className="header__profile">
-                                <div className="header__profile__image" />
-                                <div>
-                                    <div className="header__profile__name">
-                                        Chris
-                                        <br />
-                                        Rodgers
-                                    </div>
-                                    <div className="header__profile__role">
-                                        Front End Developer
+                <div className="header__container">
+                    <div className="row">
+                        <div className="columns">
+                            <div className="header">
+                                <div className="header__profile">
+                                    <div className="header__profile__image" />
+                                    <div>
+                                        {/* <div className="header__profile__name">
+                                            Chris
+                                            <br />
+                                            Rodgers
+                                        </div>
+                                        <div className="header__profile__role">
+                                            Front End Developer
+                                        </div> */}
                                     </div>
                                 </div>
-                            </div>
-                            <div className="header__navigation show-for-large">
-                                <a className="header__navigation__item header__navigation__item--current">
-                                    Work
-                                </a>
-                                <a className="header__navigation__item">
-                                    About Me
-                                </a>
-                                <a className="header__navigation__item header__navigation__item--highlighted">
-                                    Contact
-                                </a>
+                                <div className="header__navigation show-for-large">
+                                    <a className="header__navigation__item header__navigation__item--current">
+                                        Work
+                                    </a>
+                                    <a className="header__navigation__item">
+                                        About Me
+                                    </a>
+                                    <a className="header__navigation__item header__navigation__item--highlighted">
+                                        Contact
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="columns">
-                        <div className="hero">
-                            <h1 className="hero__text">
-                                <span>Hello, I'm</span>
-                                <br />
-                                <span>Chris Rodgers</span>
-                                <br />
-                                <span>Front End Developer</span>
-                            </h1>
-                            <div>
-                                {skills.map(skill => (
-                                    <svg
-                                        className="home__skill"
-                                        viewBox="0 0 100 100">
-                                        <path
-                                            d={skill.path}
-                                            fill={skill.color}
+                <div className="hero">
+                    <div className="row">
+                        <div className="columns">
+                            <div className="hero__content">
+                                <div className="hero__content__left">
+                                    <h1 className="hero__text">
+                                        <span>Hello, I'm</span>
+                                        <br />
+                                        <span>Chris Rodgers</span>
+                                        <br />
+                                        <span>Front End Developer</span>
+                                    </h1>
+                                    <div>
+                                        {skills.map(skill => (
+                                            <svg
+                                                className="hero__skill"
+                                                viewBox="0 0 100 100">
+                                                <path
+                                                    d={skill.path}
+                                                    fill={skill.color}
+                                                />
+                                            </svg>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className="hero__content__right">
+                                    <form className="hero__contact">
+                                        <h4>Get In Touch</h4>
+                                        <div>
+                                            <label for="name">Name</label>
+                                            <input
+                                                type="text"
+                                                name="name"
+                                                id="name"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label for="email">Email</label>
+                                            <input
+                                                type="email"
+                                                name="email"
+                                                id="email"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label for="message">Message</label>
+                                            <textarea
+                                                type="text"
+                                                name="message"
+                                                id="message"
+                                                rows="3"
+                                            />
+                                        </div>
+                                        <input
+                                            type="submit"
+                                            className="button button--accent"
                                         />
-                                    </svg>
-                                ))}
+                                    </form>
+                                </div>
                             </div>
-                            <a href="#" className="button hero__button">
-                                Get In Touch
-                            </a>
                         </div>
                     </div>
                 </div>
