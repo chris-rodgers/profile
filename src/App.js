@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import Work from "./modules/Work";
 import About from "./modules/About";
+import Input from "./components/Input";
 
 const initialHeaderClass = "header__container--dark header__container--large";
 
@@ -139,28 +140,29 @@ class App extends Component {
                                     <form className="hero__contact">
                                         <h4>Get In Touch</h4>
                                         <div>
-                                            <label for="name">Name</label>
-                                            <input
+                                            <Input
                                                 type="text"
                                                 name="name"
                                                 id="name"
+                                                label="Name"
                                             />
                                         </div>
                                         <div>
-                                            <label for="email">Email</label>
-                                            <input
+                                            <Input
                                                 type="email"
                                                 name="email"
                                                 id="email"
+                                                label="Email"
                                             />
                                         </div>
                                         <div>
-                                            <label for="message">Message</label>
-                                            <textarea
+                                            <Input
                                                 type="text"
                                                 name="message"
                                                 id="message"
-                                                rows="3"
+                                                rows="8"
+                                                label="Message"
+                                                element={"textarea"}
                                             />
                                         </div>
                                         <input
@@ -168,6 +170,14 @@ class App extends Component {
                                             className="button button--accent"
                                         />
                                     </form>
+                                    <div className="hero__photo_credit">
+                                        Photo by{" "}
+                                        <a
+                                            href="https://unsplash.com/photos/zkv-iOagJis?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+                                            target="_blank">
+                                            Julius Drost
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

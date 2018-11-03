@@ -83,6 +83,7 @@ summary,
 time,
 mark,
 audio,
+input,
 video {
     margin: 0;
     padding: 0;
@@ -161,6 +162,9 @@ input,
 textarea {
     width: 100%;
     margin-bottom: 1rem;
+}
+a {
+    color: inherit;
 }
 * {
     box-sizing: inherit;

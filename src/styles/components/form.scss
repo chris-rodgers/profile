@@ -1,17 +1,43 @@
 input,
 textarea {
-    border: none;
     font-size: 1rem;
-    padding: 10px 5px;
-    background: transparentize($primary-color, 0.5);
+    padding: 15px 12px;
+    background: transparent;
     color: $white;
     &:not(.button) {
+        margin: 0;
+        border: 1px solid $primary-color;
         box-shadow: inset 0px 1px 2px black;
+    }
+}
+
+.form_control {
+    margin-bottom: 1rem;
+    position: relative;
+    input,
+    textarea {
+        &:not(.button) {
+            padding: 20px 12px 4px;
+        }
     }
 }
 
 label {
     margin: 0 0 5px;
     font-weight: lighter;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+
+    &.overlay {
+        top: 7px;
+        position: absolute;
+        transition: all 0.25s ease;
+        pointer-events: none;
+        opacity: 0.5;
+        margin-left: 12px;
+
+        &:not(.active) {
+            top: 14px;
+            font-size: 1rem;
+        }
+    }
 }
