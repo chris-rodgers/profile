@@ -164,7 +164,7 @@ class Work extends Component {
             <div className="work">
                 <div className="row text-center">
                     <div className="columns">
-                        <h6>Work</h6>
+                        <h1>Work</h1>
                     </div>
                 </div>
                 <div className="row">

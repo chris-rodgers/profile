@@ -14,6 +14,10 @@
         background: $black;
         transition: all 0.25s ease;
 
+        .row {
+            overflow: visible;
+        }
+
         &--white {
             color: $black;
             background: $white;
@@ -24,6 +28,10 @@
 
         &--large {
             padding: $small-spacing 0;
+            .header__profile__image {
+                box-shadow: 0 0 0 15px $black,
+                    0 0 0 23px transparentize($white, 0.9);
+            }
         }
     }
 
@@ -42,6 +50,8 @@
             background-image: url("/images/profile-image.png");
             background-size: cover;
             background-position: center;
+            box-shadow: none;
+            transition: box-shadow 1s ease;
         }
         &__text {
             opacity: 0;
