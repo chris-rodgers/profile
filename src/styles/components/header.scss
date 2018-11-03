@@ -12,10 +12,18 @@
         z-index: 999;
         color: $white;
         background: $black;
+        transition: all 0.25s ease;
 
         &--white {
             color: $black;
             background: $white;
+            .header__profile__text {
+                opacity: 1;
+            }
+        }
+
+        &--large {
+            margin: $small-spacing 0;
         }
     }
 
@@ -24,7 +32,7 @@
         display: flex;
         flex-shrink: 0;
         align-items: center;
-        margin: $small-spacing 0;
+        margin: 0.5rem 0;
         &__image {
             width: 64px;
             height: 64px;
@@ -34,6 +42,9 @@
             background-image: url("/images/profile-image.png");
             background-size: cover;
             background-position: center;
+        }
+        &__text {
+            opacity: 0;
         }
         &__name {
             font-size: 16px;

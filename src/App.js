@@ -38,36 +38,68 @@ const skills = [
 ];
 
 class App extends Component {
+    state = {
+        headerVariant: "dark"
+    };
     openWorkModal = e => {
         this.workModal.handleOpen(e);
     };
+    componentDidMount() {
+        window.addEventListener("scroll", this.handleScroll);
+    }
+    componentWillUnmount() {
+        window.removeEventListener("scroll", this.handleScroll);
+    }
+    handleScroll = () => {
+        const scrollY = window.scrollY;
+        let headerClasses;
+
+        if (scrollY === 0) {
+            headerClasses = "header__container--dark header__container--large";
+        } else if (
+            scrollY <
+            this.hero.offsetHeight - this.header.offsetHeight
+        ) {
+            headerClasses = "header__container--dark";
+        } else {
+            headerClasses = "header__container--white";
+        }
+
+        if (this.state.headerClasses != headerClasses) {
+            this.setState({ headerClasses });
+        }
+    };
     render() {
+        const { headerClasses } = this.state;
         return (
             <div>
-                <div className="header__container">
+                <div
+                    className={`header__container ${headerClasses}`}
+                    ref={ref => (this.header = ref)}>
                     <div className="row">
                         <div className="columns">
                             <div className="header">
                                 <div className="header__profile">
                                     <div className="header__profile__image" />
-                                    <div>
-                                        {/* <div className="header__profile__name">
+                                    <div className="header__profile__text">
+                                        <div className="header__profile__name">
                                             Chris
                                             <br />
                                             Rodgers
                                         </div>
                                         <div className="header__profile__role">
                                             Front End Developer
-                                        </div> */}
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="header__navigation show-for-large">
                                     <a className="header__navigation__item header__navigation__item--current">
-                                        Work
-                                    </a>
-                                    <a className="header__navigation__item">
                                         About Me
                                     </a>
+                                    <a className="header__navigation__item">
+                                        Work
+                                    </a>
+
                                     <a className="header__navigation__item header__navigation__item--highlighted">
                                         Contact
                                     </a>
@@ -76,7 +108,7 @@ class App extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="hero">
+                <div className="hero" ref={ref => (this.hero = ref)}>
                     <div className="row">
                         <div className="columns">
                             <div className="hero__content">
