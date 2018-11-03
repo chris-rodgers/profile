@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import Work from "./modules/Work";
+import About from "./modules/About";
 
 const skills = [
     {
@@ -50,15 +51,12 @@ class App extends Component {
                                 <div className="header__profile__image" />
                                 <div>
                                     <div className="header__profile__name">
-                                        {/* Chris
+                                        Chris
                                         <br />
-                                        Rodgers */}
-                                        Lorem <br />
-                                        Ipsum
+                                        Rodgers
                                     </div>
                                     <div className="header__profile__role">
-                                        {/* Front End Developer */}
-                                        Lorem ipsum dolor sit amet
+                                        Front End Developer
                                     </div>
                                 </div>
                             </div>
@@ -69,12 +67,8 @@ class App extends Component {
                                 <a className="header__navigation__item">
                                     About Me
                                 </a>
-                                <a className="header__navigation__item">
-                                    Contact
-                                </a>
                                 <a className="header__navigation__item header__navigation__item--highlighted">
-                                    {/* Hire Me */}
-                                    Lorem
+                                    Contact
                                 </a>
                             </div>
                         </div>
@@ -84,16 +78,11 @@ class App extends Component {
                     <div className="columns">
                         <div className="hero">
                             <h1 className="hero__text">
-                                {/* <span>Hello, I'm</span>
+                                <span>Hello, I'm</span>
                                 <br />
                                 <span>Chris Rodgers</span>
                                 <br />
-                                <span>Front End Developer</span> */}
-                                <span>Lorem </span>
-                                <br />
-                                <span>Lorem Ipsum</span>
-                                <br />
-                                <span>Lorem ipsum dolor sit amet</span>
+                                <span>Front End Developer</span>
                             </h1>
                             <div>
                                 {skills.map(skill => (
@@ -108,19 +97,13 @@ class App extends Component {
                                 ))}
                             </div>
                             <a href="#" className="button hero__button">
-                                {/* Hire Me */}
-                                Lorem
-                            </a>
-                            <a
-                                href="#"
-                                className="button hero__button button--hollow">
-                                {/* See My Resume */}
-                                Ipsum
+                                Get In Touch
                             </a>
                         </div>
                     </div>
                 </div>
                 <Work />
+                <About />
             </div>
         );
     }

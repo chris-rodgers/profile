@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import Carousel from "nuka-carousel";
 import Modal from "../components/Modal";
 import Slideshow from "../components/Slideshow";
-import styled, { keyframes } from "styled-components";
 
 const workItems = [
     {
@@ -101,7 +99,7 @@ const workItems = [
         c-1.8-7.9-6-10.8-14-10.9c-11.6,0.1-14.7,9.4-14.7,19.4c-0.5,19.6,26,22.4,28.9,5.1H265L280,208.9`,
         thumbnail: "/images/work/scania.png",
         color: "#090047"
-    }
+    },
     // {
     //     name: "Kia",
     //     viewBox: "0 0 199.4 100",
@@ -123,13 +121,34 @@ const workItems = [
     //     thumbnail: "https://loremflickr.com/320/240/flowers?random=",
     //     color: "#919191"
     // },
-    // {
-    //     name: "Cortex",
-    //     viewBox: "0 0 100 100",
-    //     path: ``,
-    //     thumbnail: "https://loremflickr.com/320/240/flowers?random=",
-    //     color: "#9b1f00"
-    // }
+    {
+        name: "Kia",
+        viewBox: "0 0 100 100",
+        path: ``,
+        thumbnail: "/images/work/scania.png",
+        color: "#9b1f00"
+    },
+    {
+        name: "RLA",
+        viewBox: "0 0 100 100",
+        path: ``,
+        thumbnail: "/images/work/scania.png",
+        color: "#9b1f00"
+    },
+    {
+        name: "Cortex",
+        viewBox: "0 0 100 100",
+        path: ``,
+        thumbnail: "/images/work/scania.png",
+        color: "#9b1f00"
+    },
+    {
+        name: "GigFiller",
+        viewBox: "0 0 100 100",
+        path: ``,
+        thumbnail: "/images/work/scania.png",
+        color: "#9b1f00"
+    }
 ];
 
 class Work extends Component {
@@ -141,8 +160,13 @@ class Work extends Component {
             initialSlideHeight: 600,
             wrapAround: true
         };
-        return (
-            <div>
+        return [
+            <div className="work">
+                <div className="row text-center">
+                    <div className="columns">
+                        <h6>Work</h6>
+                    </div>
+                </div>
                 <div className="row">
                     {workItems.map((item, i) => {
                         const clipId = `clip-${item.name}`;
@@ -201,29 +225,28 @@ class Work extends Component {
                         );
                     })}
                 </div>
-
-                <Modal innerRef={node => (this.workModal = node)}>
-                    <div className="work__modal">
-                        <div className="work__modal__carousel">
-                            <Slideshow
-                                slides={[
-                                    "/images/work/ford/tradeparts/1.png",
-                                    "/images/work/ford/tradeparts/2.png",
-                                    "/images/work/ford/tradeparts/3.png",
-                                    "/images/work/ford/tradeparts/4.png"
-                                ]}
-                                duration={3000}
-                            />
-                        </div>
-
-                        <div class="work__modal__content">
-                            <h1>Lorem Ipsum Dolor Sit Amet</h1>
-                            <p>Lorem Ipsum Dolor Set Amet</p>
-                        </div>
+            </div>,
+            <Modal innerRef={node => (this.workModal = node)}>
+                <div className="work__modal">
+                    <div className="work__modal__carousel">
+                        <Slideshow
+                            slides={[
+                                "/images/work/ford/tradeparts/1.png",
+                                "/images/work/ford/tradeparts/2.png",
+                                "/images/work/ford/tradeparts/3.png",
+                                "/images/work/ford/tradeparts/4.png"
+                            ]}
+                            duration={3000}
+                        />
                     </div>
-                </Modal>
-            </div>
-        );
+
+                    <div class="work__modal__content">
+                        <h1>Lorem Ipsum Dolor Sit Amet</h1>
+                        <p>Lorem Ipsum Dolor Set Amet</p>
+                    </div>
+                </div>
+            </Modal>
+        ];
     }
 }
 

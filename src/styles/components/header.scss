@@ -15,6 +15,9 @@
             background-color: gray;
             border-radius: 60px;
             margin-right: 0.8rem;
+            background-image: url("/images/profile-image.png");
+            background-size: cover;
+            background-position: center;
         }
         &__name {
             font-size: 16px;
