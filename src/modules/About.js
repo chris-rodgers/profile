@@ -1,16 +1,37 @@
 import React, { Component } from "react";
 import { CurvedCarousel } from "curved-carousel";
 
+const photos = [
+    { src: "bee-on-flower.jpg", caption: "lorem ipsum" },
+    { src: "butterfly.jpg", caption: "lorem ipsum" },
+    { src: "garden.jpg", caption: "lorem ipsum" },
+    { src: "george-1.jpg", caption: "lorem ipsum" },
+    { src: "george-2.jpg", caption: "lorem ipsum" },
+    { src: "gran-canaria.jpg", caption: "lorem ipsum" },
+    { src: "slinky.jpg", caption: "lorem ipsum" },
+    { src: "sorrento.jpg", caption: "lorem ipsum" },
+    { src: "sunset.jpg", caption: "lorem ipsum" }
+];
 class About extends Component {
+    state = {
+        selected: 0
+    };
+    handleClick = selected => {
+        console.log(selected);
+        this.setState({ selected: selected });
+    };
     render() {
+        const { selected } = this.state;
+
         return (
             <div className="about">
                 <div className="row text-center">
-                    <div className="columns" />
+                    <div className="columns">
+                        <h1 className="about__title">Who Am I?</h1>
+                    </div>
                 </div>
                 <div className="row">
                     <div className="columns large-6">
-                        <h1 className="about__title">Who Am I?</h1>
                         <p>
                             Hello! As you’ll probably have gathered, my name is
                             Chris and I’m a Front-End Developer, based in
@@ -37,23 +58,37 @@ class About extends Component {
                         </a>
                     </div>
                     <div className="columns large-6">
-                        <CurvedCarousel
-                            childWidth={100}
-                            curve={10}
-                            spacing={10}
-                            rotation={10}
-                            style={{
-                                height: 350
-                            }}>
-                            <img src="http://s30.postimg.org/r1tgqbr31/MV5_BMj_A1_MTQ3_Nz_U1_MV5_BMl5_Ban_Bn_Xk_Ft_ZTgw_MDE3_Mjg0_Mz_E.jpg" />
-                            <img src="http://s30.postimg.org/dra7ajpwd/MV5_BMj_Ax_Njc0_Mj_Iy_M15_BMl5_Ban_Bn_Xk_Ft_ZTcw_NTM2_NDA4_MQ.jpg" />
-                            <img src="http://s30.postimg.org/6180j5cyl/MV5_BMj_E5_NDU2_Mzc3_MV5_BMl5_Ban_Bn_Xk_Ft_ZTcw_Nj_Aw_NTE5_OQ.jpg" />
-                            <img src="http://s30.postimg.org/gith15of1/MV5_BMTA2_OTE1_Njg4_Nj_Ve_QTJe_QWpw_Z15_Bb_WU3_MDAy_Nj_U4_MDM.jpg" />
-                            <img src="http://s30.postimg.org/fs0qvdm1p/MV5_BMTI3_MDc4_Nz_Uy_MV5_BMl5_Ban_Bn_Xk_Ft_ZTcw_MTQy_MTc5_MQ.jpg" />
-                            <img src="http://s30.postimg.org/xaesjwonx/MV5_BMTI4_Mzk4_MDk2_NV5_BMl5_Ban_Bn_Xk_Ft_ZTYw_ODgx_Njc4_V1.jpg" />
-                            <img src="http://s30.postimg.org/suwdenc9p/MV5_BMTkx_Mzk2_MDkw_OV5_BMl5_Ban_Bn_Xk_Ft_ZTcw_MDAx_ODQw_Mg.jpg" />
-                            <img src="http://s30.postimg.org/f51u5up5p/MV5_BMTQw_MTk3_NDU2_OV5_BMl5_Ban_Bn_Xk_Ft_ZTcw_NTA3_MTI0_Mw.jpg" />
-                        </CurvedCarousel>
+                        <div className="about__gallery">
+                            <img
+                                className="about__gallery__selected__image"
+                                src={`/images/about/${photos[selected].src}`}
+                            />
+                            <p className="about__gallery__selected__caption">
+                                {photos[selected].caption}
+                            </p>
+                            <CurvedCarousel
+                                childWidth={80}
+                                childHeight={200}
+                                curve={10}
+                                spacing={50}
+                                style={{
+                                    height: 110
+                                }}>
+                                {photos.map((photo, i) => (
+                                    <div className="about__gallery__item">
+                                        <div
+                                            className="about__gallery__item__image"
+                                            style={{
+                                                backgroundImage: `url('/images/about/${
+                                                    photo.src
+                                                }?random=${i}')`
+                                            }}
+                                            onClick={() => this.handleClick(i)}
+                                        />
+                                    </div>
+                                ))}
+                            </CurvedCarousel>
+                        </div>
                     </div>
                 </div>
             </div>
