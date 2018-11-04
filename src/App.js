@@ -171,11 +171,10 @@ class App extends Component {
                                         />
                                     </form>
                                     <div className="hero__photo_credit">
-                                        Photo by{" "}
                                         <a
                                             href="https://unsplash.com/photos/zkv-iOagJis?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
                                             target="_blank">
-                                            Julius Drost
+                                            Photo by Julius Drost
                                         </a>
                                     </div>
                                 </div>
