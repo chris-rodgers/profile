@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import Carousel from "../components/Carousel";
 
 const items = [
-    { src: "/images/about/bee-on-flower.jpg", caption: "lorem ipsum" },
-    { src: "/images/about/butterfly.jpg", caption: "lorem ipsum" },
-    { src: "/images/about/garden.jpg", caption: "lorem ipsum" },
-    { src: "/images/about/george-1.jpg", caption: "lorem ipsum" },
-    { src: "/images/about/gran-canaria.jpg", caption: "lorem ipsum" },
-    { src: "/images/about/sorrento.jpg", caption: "lorem ipsum" }
+    { src: "/images/about/george-1.jpg", caption: "Our cat, George" },
+    { src: "/images/about/bee-on-flower.jpg", caption: "" },
+    { src: "/images/about/butterfly.jpg", caption: "" },
+    { src: "/images/about/garden.jpg", caption: "" },
+    { src: "/images/about/gran-canaria.jpg", caption: "" },
+    { src: "/images/about/sorrento.jpg", caption: "" }
 ];
 class About extends Component {
     state = {

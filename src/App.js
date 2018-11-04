@@ -123,7 +123,7 @@ class App extends Component {
                                             Rodgers
                                         </div>
                                         <div className="header__profile__role">
-                                            Front End Developer
+                                            Front-end Developer
                                         </div>
                                     </div>
                                 </div>
@@ -153,7 +153,7 @@ class App extends Component {
                                             <br />
                                             <span>Chris Rodgers</span>
                                             <br />
-                                            <span>Front End Developer</span>
+                                            <span>Front-end Developer</span>
                                         </h1>
                                         <div>
                                             {skills.map(skill => (
