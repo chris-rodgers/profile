@@ -183,8 +183,9 @@ class App extends Component {
                         </div>
                     </div>
                 </div>
-                <Work />
+
                 <About />
+                <Work />
             </div>
         );
     }

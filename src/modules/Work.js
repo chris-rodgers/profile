@@ -162,17 +162,20 @@ class Work extends Component {
         };
         return [
             <div className="work">
-                <div className="row text-center">
-                    <div className="columns">
-                        <h1>Work</h1>
+                <div className="work__title">
+                    <div className="row">
+                        <div className="columns">
+                            <h1>Work</h1>
+                        </div>
                     </div>
                 </div>
+
                 <div className="row">
                     {workItems.map((item, i) => {
                         const clipId = `clip-${item.name}`;
 
                         return (
-                            <div className="medium-6 large-3 columns">
+                            <div className="medium-6 large-4 columns">
                                 <div
                                     className="work__item"
                                     onClick={this.openModal}>
@@ -181,36 +184,6 @@ class Work extends Component {
                                             className=""
                                             src={item.thumbnail}
                                         />
-
-                                        <svg
-                                            className="work__item__logo"
-                                            viewBox="0 0 640 480">
-                                            <defs>
-                                                <clipPath id={clipId}>
-                                                    <path
-                                                        d={item.path}
-                                                        fill="#000000"
-                                                    />
-
-                                                    <rect
-                                                        fill="#ffffff"
-                                                        width="100%"
-                                                        height="100%"
-                                                    />
-                                                </clipPath>
-                                            </defs>
-                                            <rect
-                                                className="work__item__logo__overlay"
-                                                fill={item.color}
-                                                width="100%"
-                                                height="100%"
-                                            />
-                                            <rect
-                                                clipPath={`url(#${clipId})`}
-                                                width="100%"
-                                                height="100%"
-                                            />
-                                        </svg>
                                     </div>
                                     <div className="work__item__description">
                                         <div className="work__item__client">

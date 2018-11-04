@@ -15,9 +15,13 @@ $breakpoints: (
     large: 700px,
     xlarge: 1050px
 );
-$body-font-family: "Montserrat", sans-serif;
-$body-color: $primary-color;
-$global-radius: 0.6rem;
+$body-font-family: "Open Sans", sans-serif;
+$body-color: #636f7b;
+$global-radius: 0;
+
+// Headers
+$header-font-family: "Montserrat", sans-serif;
+$header-color: $primary-color;
 
 // Button
 $button-border-radius: 0;

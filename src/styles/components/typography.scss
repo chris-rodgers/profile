@@ -1,25 +1,25 @@
 h1 {
-    font-size: 2em;
+    font-size: 3rem;
 }
 
 h2 {
-    font-size: 1.8em;
+    font-size: 1.8rem;
 }
 
 h3 {
-    font-size: 1.6em;
+    font-size: 1.6rem;
 }
 
 h4 {
-    font-size: 1.6em;
+    font-size: 1.6rem;
 }
 
 h5 {
-    font-size: 1.4em;
+    font-size: 1.4rem;
 }
 
 h6 {
-    font-size: 1.2em;
+    font-size: 1.2rem;
 }
 
 h1,
@@ -30,8 +30,11 @@ h5,
 h6 {
     font-weight: 700;
     margin-bottom: $medium-spacing;
+    font-family: $header-font-family;
+    color: $header-color;
 }
 
 p {
     margin-bottom: $medium-spacing;
+    line-height: 1.5;
 }

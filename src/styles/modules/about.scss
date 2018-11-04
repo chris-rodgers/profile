@@ -1,6 +1,6 @@
 .about {
     margin-bottom: $large-spacing;
-    h6 {
-        font-size: 45px;
+    &__title {
+        padding: $small-spacing 0;
     }
 }
