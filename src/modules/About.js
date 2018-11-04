@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import Carousel from "nuka-carousel";
+import Carousel from "../components/Carousel";
 
-const photos = [
-    { src: "bee-on-flower.jpg", caption: "lorem ipsum" },
-    { src: "butterfly.jpg", caption: "lorem ipsum" },
-    { src: "garden.jpg", caption: "lorem ipsum" },
-    { src: "george-1.jpg", caption: "lorem ipsum" },
-    { src: "gran-canaria.jpg", caption: "lorem ipsum" },
-    { src: "sorrento.jpg", caption: "lorem ipsum" }
+const items = [
+    { src: "/images/about/bee-on-flower.jpg", caption: "lorem ipsum" },
+    { src: "/images/about/butterfly.jpg", caption: "lorem ipsum" },
+    { src: "/images/about/garden.jpg", caption: "lorem ipsum" },
+    { src: "/images/about/george-1.jpg", caption: "lorem ipsum" },
+    { src: "/images/about/gran-canaria.jpg", caption: "lorem ipsum" },
+    { src: "/images/about/sorrento.jpg", caption: "lorem ipsum" }
 ];
 class About extends Component {
     state = {
@@ -60,33 +60,7 @@ class About extends Component {
                     </div>
                     <div className="columns large-6">
                         <div className="about__gallery">
-                            <img
-                                className="about__gallery__selected__image"
-                                src={`/images/about/${photos[selected].src}`}
-                            />
-                            <Carousel
-                                className="about__gallery__carousel"
-                                slidesToShow={4}
-                                wrapAround={true}
-                                cellAlign="center"
-                                afterSlide={x => this.handleAfterSlide(x)}
-                                withoutControls={true}
-                                slideIndex={slideIndex}>
-                                {photos.map((photo, i) => (
-                                    <div
-                                        onClick={() => this.handleClick(i)}
-                                        className="about__gallery__item"
-                                        style={{
-                                            backgroundImage: `url('/images/about/${
-                                                photo.src
-                                            }')`
-                                        }}
-                                    />
-                                ))}
-                            </Carousel>
-                            <p className="about__gallery__selected__caption">
-                                {photos[selected].caption}
-                            </p>
+                            <Carousel height={500} items={items} />
                         </div>
                     </div>
                 </div>
