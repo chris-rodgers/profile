@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import classnames from "classnames";
 import logo from "./logo.svg";
 import Work from "./modules/Work";
 import About from "./modules/About";
 import Input from "./components/Input";
 
 const initialHeaderClass = "header__container--dark header__container--large";
+const initialSection = undefined;
 
 const skills = [
     {
@@ -41,8 +43,10 @@ const skills = [
 ];
 
 class App extends Component {
+    sections = {};
     state = {
-        headerClasses: initialHeaderClass
+        headerClasses: initialHeaderClass,
+        currentSection: initialSection
     };
     openWorkModal = e => {
         this.workModal.handleOpen(e);
@@ -55,14 +59,15 @@ class App extends Component {
     }
     handleScroll = () => {
         const scrollY = window.scrollY;
+        const heroHeight = this.hero.offsetHeight;
+        const headerHeight = this.header.offsetHeight;
         let headerClasses;
+        let currentSection;
 
+        // Header color
         if (scrollY === 0) {
             headerClasses = initialHeaderClass;
-        } else if (
-            scrollY <
-            this.hero.offsetHeight - this.header.offsetHeight
-        ) {
+        } else if (scrollY < heroHeight - headerHeight) {
             headerClasses = "header__container--dark";
         } else {
             headerClasses = "header__container--white";
@@ -71,9 +76,34 @@ class App extends Component {
         if (this.state.headerClasses != headerClasses) {
             this.setState({ headerClasses });
         }
+
+        // Current Section
+        Object.keys(this.sections).map((key, i) => {
+            const section = this.sections[key];
+            const offsetHeight = section.offsetHeight - headerHeight;
+            if (scrollY >= offsetHeight) {
+                currentSection = key;
+            } else if (scrollY < offsetHeight) {
+                // Do Nothing
+            } else {
+                currentSection = initialSection;
+            }
+        });
+
+        if (this.state.currentSection != currentSection) {
+            this.setState({ currentSection });
+        }
     };
     render() {
-        const { headerClasses } = this.state;
+        const { headerClasses, currentSection } = this.state;
+        const navigationClasses = section => {
+            return classnames("header__navigation__item", {
+                "header__navigation__item--current": Boolean(
+                    currentSection === section
+                )
+            });
+        };
+        console.log(currentSection);
         return (
             <div>
                 <div
@@ -96,13 +126,12 @@ class App extends Component {
                                     </div>
                                 </div>
                                 <div className="header__navigation show-for-large">
-                                    <a className="header__navigation__item header__navigation__item--current">
+                                    <a className={navigationClasses("about")}>
                                         About Me
                                     </a>
-                                    <a className="header__navigation__item">
+                                    <a className={navigationClasses("work")}>
                                         Work
                                     </a>
-
                                     <a className="header__navigation__item header__navigation__item--highlighted">
                                         Contact
                                     </a>
@@ -112,79 +141,84 @@ class App extends Component {
                     </div>
                 </div>
                 <div className="hero" ref={ref => (this.hero = ref)}>
-                    <div className="row">
-                        <div className="columns">
-                            <div className="hero__content">
-                                <div className="hero__content__left">
-                                    <h1 className="hero__text">
-                                        <span>Hello, I'm</span>
-                                        <br />
-                                        <span>Chris Rodgers</span>
-                                        <br />
-                                        <span>Front End Developer</span>
-                                    </h1>
-                                    <div>
-                                        {skills.map(skill => (
-                                            <svg
-                                                className="hero__skill"
-                                                viewBox="0 0 100 100">
-                                                <path
-                                                    d={skill.path}
-                                                    fill={skill.color}
-                                                />
-                                            </svg>
-                                        ))}
+                    <div>
+                        <div className="row">
+                            <div className="columns">
+                                <div className="hero__content">
+                                    <div className="hero__content__left">
+                                        <h1 className="hero__text">
+                                            <span>Hello, I'm</span>
+                                            <br />
+                                            <span>Chris Rodgers</span>
+                                            <br />
+                                            <span>Front End Developer</span>
+                                        </h1>
+                                        <div>
+                                            {skills.map(skill => (
+                                                <svg
+                                                    className="hero__skill"
+                                                    viewBox="0 0 100 100">
+                                                    <path
+                                                        d={skill.path}
+                                                        fill={skill.color}
+                                                    />
+                                                </svg>
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="hero__content__right">
-                                    <form className="hero__contact text-center">
-                                        <h6>Get In Touch</h6>
-                                        <div>
-                                            <Input
-                                                type="text"
-                                                name="name"
-                                                id="name"
-                                                label="Name"
+                                    <div className="hero__content__right">
+                                        <form className="hero__contact text-center">
+                                            <h6>Get In Touch</h6>
+                                            <div>
+                                                <Input
+                                                    type="text"
+                                                    name="name"
+                                                    id="name"
+                                                    label="Name"
+                                                />
+                                            </div>
+                                            <div>
+                                                <Input
+                                                    type="email"
+                                                    name="email"
+                                                    id="email"
+                                                    label="Email"
+                                                />
+                                            </div>
+                                            <div>
+                                                <Input
+                                                    type="text"
+                                                    name="message"
+                                                    id="message"
+                                                    rows="5"
+                                                    label="Message"
+                                                    element={"textarea"}
+                                                />
+                                            </div>
+                                            <input
+                                                type="submit"
+                                                className="button button--accent"
                                             />
+                                        </form>
+                                        <div className="hero__photo_credit">
+                                            <a
+                                                href="https://unsplash.com/photos/zkv-iOagJis?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+                                                target="_blank">
+                                                Photo by Julius Drost
+                                            </a>
                                         </div>
-                                        <div>
-                                            <Input
-                                                type="email"
-                                                name="email"
-                                                id="email"
-                                                label="Email"
-                                            />
-                                        </div>
-                                        <div>
-                                            <Input
-                                                type="text"
-                                                name="message"
-                                                id="message"
-                                                rows="5"
-                                                label="Message"
-                                                element={"textarea"}
-                                            />
-                                        </div>
-                                        <input
-                                            type="submit"
-                                            className="button button--accent"
-                                        />
-                                    </form>
-                                    <div className="hero__photo_credit">
-                                        <a
-                                            href="https://unsplash.com/photos/zkv-iOagJis?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-                                            target="_blank">
-                                            Photo by Julius Drost
-                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <About />
-                <Work />
+                <div ref={node => (this.sections.about = node)}>
+                    <About />
+                </div>
+                <div ref={node => (this.sections.work = node)}>
+                    <Work />
+                </div>
             </div>
         );
     }

@@ -1,27 +1,28 @@
 import React, { Component } from "react";
-import { CurvedCarousel } from "curved-carousel";
+import Carousel from "nuka-carousel";
 
 const photos = [
     { src: "bee-on-flower.jpg", caption: "lorem ipsum" },
     { src: "butterfly.jpg", caption: "lorem ipsum" },
     { src: "garden.jpg", caption: "lorem ipsum" },
     { src: "george-1.jpg", caption: "lorem ipsum" },
-    { src: "george-2.jpg", caption: "lorem ipsum" },
     { src: "gran-canaria.jpg", caption: "lorem ipsum" },
-    { src: "slinky.jpg", caption: "lorem ipsum" },
-    { src: "sorrento.jpg", caption: "lorem ipsum" },
-    { src: "sunset.jpg", caption: "lorem ipsum" }
+    { src: "sorrento.jpg", caption: "lorem ipsum" }
 ];
 class About extends Component {
     state = {
-        selected: 0
+        selected: 0,
+        slideIndex: 0
     };
-    handleClick = selected => {
+    handleAfterSlide = selected => {
         console.log(selected);
         this.setState({ selected: selected });
     };
+    handleClick = slideIndex => {
+        this.setState({ slideIndex });
+    };
     render() {
-        const { selected } = this.state;
+        const { selected, slideIndex } = this.state;
 
         return (
             <div className="about">
@@ -63,31 +64,29 @@ class About extends Component {
                                 className="about__gallery__selected__image"
                                 src={`/images/about/${photos[selected].src}`}
                             />
+                            <Carousel
+                                className="about__gallery__carousel"
+                                slidesToShow={4}
+                                wrapAround={true}
+                                cellAlign="center"
+                                afterSlide={x => this.handleAfterSlide(x)}
+                                withoutControls={true}
+                                slideIndex={slideIndex}>
+                                {photos.map((photo, i) => (
+                                    <div
+                                        onClick={() => this.handleClick(i)}
+                                        className="about__gallery__item"
+                                        style={{
+                                            backgroundImage: `url('/images/about/${
+                                                photo.src
+                                            }')`
+                                        }}
+                                    />
+                                ))}
+                            </Carousel>
                             <p className="about__gallery__selected__caption">
                                 {photos[selected].caption}
                             </p>
-                            <CurvedCarousel
-                                childWidth={80}
-                                childHeight={200}
-                                curve={10}
-                                spacing={50}
-                                style={{
-                                    height: 110
-                                }}>
-                                {photos.map((photo, i) => (
-                                    <div className="about__gallery__item">
-                                        <div
-                                            className="about__gallery__item__image"
-                                            style={{
-                                                backgroundImage: `url('/images/about/${
-                                                    photo.src
-                                                }?random=${i}')`
-                                            }}
-                                            onClick={() => this.handleClick(i)}
-                                        />
-                                    </div>
-                                ))}
-                            </CurvedCarousel>
                         </div>
                     </div>
                 </div>
