@@ -1,13 +1,11 @@
 .work {
+    padding-top: $small-spacing;
     margin-bottom: $large-spacing;
     background: #fafafa;
 
     // Title
     &__title {
-        padding: $large-spacing 0;
-        h1 {
-            font-size: 3rem;
-        }
+        padding: $small-spacing 0;
     }
 
     // Items
@@ -26,11 +24,12 @@
         &__description {
             border: 3px solid $light-gray;
             border-top: none;
-            padding: 1.2rem $small-spacing;
+            padding: 1rem;
         }
         &__title {
             font-weight: bold;
             font-size: 1.1rem;
+            font-family: $header-font-family;
         }
     }
 

@@ -149,14 +149,11 @@ class Work extends Component {
         };
         return [
             <div className="work">
-                <div className="work__title">
-                    <div className="row">
-                        <div className="columns">
-                            <h1>Work</h1>
-                        </div>
+                <div className="row">
+                    <div className="columns">
+                        <h1 className="work__title text-center">Work</h1>
                     </div>
                 </div>
-
                 <div className="row">
                     {workItems.map((item, i) => {
                         const clipId = `clip-${item.name}`;
