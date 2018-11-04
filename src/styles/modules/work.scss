@@ -43,6 +43,11 @@
             opacity: 0;
             transition: opacity 0.2s ease;
         }
+        &__skill {
+            vertical-align: middle;
+            float: right;
+            margin-left: 10px;
+        }
 
         &:hover &__overlay {
             opacity: 1;

@@ -1,40 +1,49 @@
 import React, { Component } from "react";
 import Modal from "../components/Modal";
 import Carousel from "../components/Carousel";
+import Icon, { react, laravel, gatsby, sass } from "../components/Icons";
+
+const fill = "currentColor";
 
 const workItems = [
     {
         name: "Ford",
         thumbnail: "/images/work/ford.jpg",
         color: "#062b68",
-        href: "http://fordtradeparts.co.uk/"
+        href: "http://fordtradeparts.co.uk/",
+        skills: [laravel, sass]
     },
     {
         name: "Scania",
         thumbnail: "/images/work/scania.jpg",
-        color: "#090047"
+        color: "#090047",
+        skills: [laravel, sass]
     },
     {
         name: "Volvo",
         thumbnail: "/images/work/volvo.jpg",
-        color: "#191919"
+        color: "#191919",
+        skills: [laravel, react, sass]
     },
     {
         name: "PSA",
         thumbnail: "/images/work/psa.jpg",
         color: "#480075",
-        href: "https://tradeteam.co.uk/"
+        href: "https://tradeteam.co.uk/",
+        skills: [laravel, react, sass]
     },
     {
         name: "RLA",
         thumbnail: "/images/work/rla.jpg",
         color: "#9b1f00",
-        href: "https://rla.co.uk/"
+        href: "https://rla.co.uk/",
+        skills: [react, gatsby]
     },
     {
         name: "Cortex",
         thumbnail: "/images/work/cortex.jpg",
-        color: "#9b1f00"
+        color: "#9b1f00",
+        skills: [laravel, react]
     }
 ];
 
@@ -82,6 +91,14 @@ class Work extends Component {
                                     </div>
                                     <div className="work__item__title">
                                         {item.name}
+                                        {item.skills.map(skill => (
+                                            <Icon
+                                                className="work__item__skill"
+                                                path={skill.path}
+                                                fill={fill}
+                                                width={20}
+                                            />
+                                        ))}
                                     </div>
                                 </div>
                             </div>
