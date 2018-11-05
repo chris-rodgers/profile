@@ -9,6 +9,7 @@
     text-align: center;
     margin-bottom: $small-spacing;
     cursor: pointer;
+    -webkit-appearance: none;
 
     &:not(&--hollow) {
         background: $accent-color;
