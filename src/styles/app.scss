@@ -1,6 +1,6 @@
 $primary-color: #232b38;
 $accent-color: #f44336;
-$black: #000;
+$black: #000000;
 $white: #ffffff;
 $light-gray: #eeeeee;
 $small-spacing: 2rem;
@@ -17,6 +17,7 @@ $breakpoints: (
 );
 $body-font-family: "Open Sans", sans-serif;
 $body-color: #636f7b;
+$body-background-color: $black;
 $global-radius: 0;
 
 // Headers
@@ -43,6 +44,7 @@ $button-border-radius: 0;
 @import "components/form";
 @import "components/carousel";
 @import "components/flip_card";
+@import "components/footer";
 
 // Modules
 @import "/modules/work";

@@ -242,6 +242,11 @@ class App extends Component {
 
                     <Work />
                 </div>
+                <div className="footer">
+                    <div className="row">
+                        <div className="columns">© Chris Rodgers 2018</div>
+                    </div>
+                </div>
             </div>
         );
     }
