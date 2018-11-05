@@ -27,7 +27,7 @@ export default class Slideshow extends Component {
                 />
                 <Carousel
                     className="carousel__slider"
-                    slidesToShow={4}
+                    slidesToShow={3}
                     wrapAround={true}
                     cellAlign="center"
                     afterSlide={x => this.handleAfterSlide(x)}

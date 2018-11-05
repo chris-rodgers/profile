@@ -2,12 +2,17 @@ import React, { Component } from "react";
 import Carousel from "../components/Carousel";
 
 const items = [
-    { src: "/images/about/george-1.jpg", caption: "Our cat, George" },
-    { src: "/images/about/bee-on-flower.jpg", caption: "" },
-    { src: "/images/about/butterfly.jpg", caption: "" },
-    { src: "/images/about/garden.jpg", caption: "" },
-    { src: "/images/about/gran-canaria.jpg", caption: "" },
-    { src: "/images/about/sorrento.jpg", caption: "" }
+    { src: "/images/about/george-1.jpg", caption: "Our beautiful cat, George" },
+    {
+        src: "/images/about/butterfly.jpg",
+        caption: "I love nature, and take as many photos as I can!"
+    },
+    { src: "/images/about/garden.jpg", caption: "My attempt at gardening" },
+    { src: "/images/about/gran-canaria.jpg", caption: "Gran Canaria - 2018" },
+    {
+        src: "/images/about/sorrento.jpg",
+        caption: "Our view over the bay of Naples - 2017"
+    }
 ];
 class About extends Component {
     state = {
