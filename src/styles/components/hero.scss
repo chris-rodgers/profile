@@ -17,14 +17,16 @@
         justify-content: space-between;
         flex-wrap: wrap;
         align-items: center;
+        justify-content: center;
 
         &__left {
             flex-basis: 500px;
             flex-grow: 1;
-            flex-shrink: 1;
+            flex-shrink: 2;
             text-align: center;
         }
         &__right {
+            max-width: 600px;
             flex-basis: 200px;
             flex-shrink: 1;
             flex-grow: 1;
@@ -85,9 +87,12 @@
         color: $white;
     }
 
-    @media only screen and (min-width: 763px) {
+    @media only screen and (min-width: 964px) {
         &__content__left {
             text-align: left;
+        }
+        &__content__right {
+            min-width: 400px;
         }
         &__contact {
             text-align: left;
