@@ -216,6 +216,7 @@ class App extends Component {
                                                 />
                                             </div>
                                             <input
+                                                name="ip"
                                                 type="hidden"
                                                 value={address()}
                                             />
