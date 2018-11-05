@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Carousel from "../components/Carousel";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const items = [
     { src: "/images/about/george-1.jpg", caption: "Our beautiful cat, George" },
@@ -59,9 +60,12 @@ class About extends Component {
                             few of my favourites:
                         </p>
                         <p>Thanks for listening!</p>
-                        <a href="#name" className="button hero__button">
+                        <AnchorLink
+                            offset={200}
+                            href="#contact"
+                            className="button hero__button">
                             Get In Touch
-                        </a>
+                        </AnchorLink>
                     </div>
                     <div className="columns large-6">
                         <div className="about__gallery">

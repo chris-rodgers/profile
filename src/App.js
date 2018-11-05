@@ -178,7 +178,11 @@ class App extends Component {
                                         </div>
                                     </div>
                                     <div className="hero__content__right">
-                                        <form className="hero__contact text-center">
+                                        <form
+                                            className="hero__contact text-center"
+                                            name="contact"
+                                            method="POST"
+                                            netlify>
                                             <h6>Get In Touch</h6>
                                             <div>
                                                 <Input
