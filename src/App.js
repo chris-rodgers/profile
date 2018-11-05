@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import classnames from "classnames";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import { address } from "ip";
 import logo from "./logo.svg";
 import Work from "./modules/Work";
 import About from "./modules/About";
@@ -214,6 +215,10 @@ class App extends Component {
                                                     element={"textarea"}
                                                 />
                                             </div>
+                                            <input
+                                                type="hidden"
+                                                value={address()}
+                                            />
                                             <input
                                                 type="submit"
                                                 className="button button--accent"

@@ -5,6 +5,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "curved-carousel": "https://github.com/chris-rodgers/curved-carousel",
+    "ip": "^1.1.5",
     "node-sass": "^4.9.4",
     "nuka-carousel": "^4.4.1",
     "proptypes": "^1.1.0",
