@@ -5,9 +5,9 @@ const items = [
     { src: "/images/about/george-1.jpg", caption: "Our beautiful cat, George" },
     {
         src: "/images/about/butterfly.jpg",
-        caption: "I love nature, and take as many photos as I can!"
+        caption: "I love nature, and taking photos"
     },
-    { src: "/images/about/garden.jpg", caption: "My attempt at gardening" },
+    { src: "/images/about/garden.jpg", caption: "An attempt at gardening" },
     { src: "/images/about/gran-canaria.jpg", caption: "Gran Canaria - 2018" },
     {
         src: "/images/about/sorrento.jpg",
