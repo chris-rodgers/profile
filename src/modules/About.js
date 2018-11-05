@@ -40,12 +40,11 @@ class About extends Component {
                 <div className="row">
                     <div className="columns large-6">
                         <p>
-                            Hello! As you’ll probably have gathered, my name is
-                            Chris and I’m a Front-End Developer, based in
+                            Hello! I’m a Front-End Developer, based in
                             Bournemouth, UK. Enthusiastic about all things
                             digital, I have a love of plants, animals, travel,
-                            skiing, running, anything arty, cheesy pop and
-                            spending time outdoors.
+                            skiing, running, anything arty and spending time
+                            outdoors.
                         </p>
                         <p>
                             Development wise, my preferred weapons of choice are
