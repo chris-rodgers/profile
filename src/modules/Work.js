@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Modal from "../components/Modal";
-import Carousel from "../components/Carousel";
+import FlipCard, { Front, Back } from "../components/FlipCard";
+
 import Icon, { react, laravel, gatsby, sass } from "../components/Icons";
 
 const fill = "currentColor";
@@ -48,15 +48,12 @@ const workItems = [
 ];
 
 class Work extends Component {
-    openModal = e => {
-        this.workModal.handleOpen(e);
-    };
     render() {
         const carouseProps = {
             initialSlideHeight: 600,
             wrapAround: true
         };
-        return [
+        return (
             <div className="work">
                 <div className="row">
                     <div className="columns">
@@ -67,66 +64,52 @@ class Work extends Component {
                     {workItems.map((item, i) => {
                         const clipId = `clip-${item.name}`;
                         const isExternal = Boolean(item.href);
-                        const anchorProps = isExternal
-                            ? { href: item.href, target: "_blank" }
-                            : { onClick: this.openModal };
+                        const anchorProps = isExternal && {
+                            href: item.href,
+                            target: "_blank"
+                        };
 
                         console.log(anchorProps);
 
                         return (
                             <div className="medium-6 large-4 columns">
                                 <div className="work__item">
-                                    <div className="work__item__image">
-                                        <a {...anchorProps}>
-                                            <div className="work__item__overlay">
-                                                {isExternal
-                                                    ? "Visit Site"
-                                                    : "Read More"}
+                                    <FlipCard canFlip={!isExternal}>
+                                        <Front>
+                                            <div className="work__item__image">
+                                                <a {...anchorProps}>
+                                                    <div className="work__item__overlay">
+                                                        {isExternal
+                                                            ? "Visit Site"
+                                                            : "Read More"}
+                                                    </div>
+                                                    <img
+                                                        className=""
+                                                        src={item.thumbnail}
+                                                    />
+                                                </a>
                                             </div>
-                                            <img
-                                                className=""
-                                                src={item.thumbnail}
-                                            />
-                                        </a>
-                                    </div>
-                                    <div className="work__item__title">
-                                        {item.name}
-                                        {item.skills.map(skill => (
-                                            <Icon
-                                                className="work__item__skill"
-                                                path={skill.path}
-                                                fill={fill}
-                                                width={20}
-                                            />
-                                        ))}
-                                    </div>
+                                            <div className="work__item__title">
+                                                {item.name}
+                                                {item.skills.map(skill => (
+                                                    <Icon
+                                                        className="work__item__skill"
+                                                        path={skill.path}
+                                                        fill={fill}
+                                                        width={20}
+                                                    />
+                                                ))}
+                                            </div>
+                                        </Front>
+                                        <Back>test</Back>
+                                    </FlipCard>
                                 </div>
                             </div>
                         );
                     })}
                 </div>
-            </div>,
-            <Modal innerRef={node => (this.workModal = node)}>
-                <div className="work__modal">
-                    <div className="work__modal__carousel">
-                        <Carousel
-                            height="100%"
-                            items={[
-                                { src: "/images/work/ford/tradeparts/1.png" },
-                                { src: "/images/work/ford/tradeparts/2.png" },
-                                { src: "/images/work/ford/tradeparts/3.png" },
-                                { src: "/images/work/ford/tradeparts/4.png" }
-                            ]}
-                        />
-                    </div>
-
-                    <div className="work__modal__content">
-                        <h3>Lorem Ipsum Dolor Sit Amet</h3>
-                        <p>Lorem Ipsum Dolor Set Amet</p>
-                    </div>
-                </div>
-            </Modal>
-        ];
+            </div>
+        );
     }
 }
 
