@@ -183,6 +183,11 @@ class App extends Component {
                                             method="post"
                                             className="hero__contact text-center">
                                             <h6>Get In Touch</h6>
+                                            <input
+                                                type="hidden"
+                                                name="form-name"
+                                                value="contact"
+                                            />
                                             <div>
                                                 <Input
                                                     type="text"
