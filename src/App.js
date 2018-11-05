@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import classnames from "classnames";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 import logo from "./logo.svg";
 import Work from "./modules/Work";
 import About from "./modules/About";
@@ -105,7 +106,8 @@ class App extends Component {
                 )
             });
         };
-        console.log(currentSection);
+        const headerHeight = this.header && this.header.offsetHeight;
+
         return (
             <div>
                 <div
@@ -128,20 +130,30 @@ class App extends Component {
                                     </div>
                                 </div>
                                 <div className="header__navigation show-for-large">
-                                    <a className={navigationClasses("about")}>
+                                    <AnchorLink
+                                        offset={headerHeight}
+                                        className={navigationClasses("about")}
+                                        href="#about">
                                         About Me
-                                    </a>
-                                    <a className={navigationClasses("work")}>
+                                    </AnchorLink>
+                                    <AnchorLink
+                                        offset={headerHeight}
+                                        className={navigationClasses("work")}
+                                        href="#work">
                                         Work
-                                    </a>
-                                    <a className="header__navigation__item header__navigation__item--highlighted">
+                                    </AnchorLink>
+                                    <AnchorLink
+                                        offset={headerHeight}
+                                        className="header__navigation__item header__navigation__item--highlighted"
+                                        href="#contact">
                                         Contact
-                                    </a>
+                                    </AnchorLink>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="anchor" id="contact" />
                 <div className="hero" ref={ref => (this.hero = ref)}>
                     <div>
                         <div className="row">
@@ -213,9 +225,13 @@ class App extends Component {
                     </div>
                 </div>
                 <div ref={node => (this.sections.about = node)}>
+                    <div class="anchor" id="about" />
+
                     <About />
                 </div>
                 <div ref={node => (this.sections.work = node)}>
+                    <div class="anchor" id="work" />
+
                     <Work />
                 </div>
             </div>
