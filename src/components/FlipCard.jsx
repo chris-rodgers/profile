@@ -30,14 +30,17 @@ export default class FlipCard extends Component {
     }
 }
 
-export const Front = ({ children, handleFlip, ...props }) => (
-    <div className="flip_card__front" onClick={handleFlip} {...props}>
+export const Front = ({ className, children, handleFlip, ...props }) => (
+    <div
+        className={classnames("flip_card__front", className)}
+        onClick={handleFlip}
+        {...props}>
         {children}
     </div>
 );
 
-export const Back = ({ children, handleFlip, ...props }) => (
-    <div className="flip_card__back" {...props}>
+export const Back = ({ className, children, handleFlip, ...props }) => (
+    <div className={classnames("flip_card__back", className)} {...props}>
         <button className="close_button" onClick={handleFlip} />
         {children}
     </div>

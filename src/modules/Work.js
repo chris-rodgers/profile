@@ -11,39 +11,45 @@ const workItems = [
         thumbnail: "/images/work/ford.jpg",
         color: "#062b68",
         href: "http://fordtradeparts.co.uk/",
-        skills: [laravel, sass]
+        skills: [laravel, sass],
+        description: ""
     },
     {
         name: "Scania",
         thumbnail: "/images/work/scania.jpg",
         color: "#090047",
-        skills: [laravel, sass]
+        skills: [laravel, sass],
+        description: ""
     },
     {
         name: "Volvo",
         thumbnail: "/images/work/volvo.jpg",
         color: "#191919",
-        skills: [laravel, react, sass]
+        skills: [laravel, react, sass],
+        description: ""
     },
     {
         name: "PSA",
         thumbnail: "/images/work/psa.jpg",
         color: "#480075",
         href: "https://tradeteam.co.uk/",
-        skills: [laravel, react, sass]
+        skills: [laravel, react, sass],
+        description: ""
     },
     {
         name: "RLA",
         thumbnail: "/images/work/rla.jpg",
         color: "#9b1f00",
         href: "https://rla.co.uk/",
-        skills: [react, gatsby]
+        skills: [react, gatsby],
+        description: ""
     },
     {
         name: "Cortex",
         thumbnail: "/images/work/cortex.jpg",
         color: "#9b1f00",
-        skills: [laravel, react]
+        skills: [laravel, react],
+        description: ""
     }
 ];
 
@@ -101,7 +107,13 @@ class Work extends Component {
                                                 ))}
                                             </div>
                                         </Front>
-                                        <Back>test</Back>
+                                        <Back className="work__item__description">
+                                            <h6>{item.name}</h6>
+                                            {item.description ||
+                                                `Information on ${
+                                                    item.name
+                                                } coming soon`}
+                                        </Back>
                                     </FlipCard>
                                 </div>
                             </div>

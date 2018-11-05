@@ -47,6 +47,15 @@
             float: right;
             margin-left: 10px;
         }
+        &__description {
+            text-align: center;
+            padding: $small-spacing;
+            border: 3px solid $light-gray;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
         &:hover &__overlay {
             opacity: 1;
