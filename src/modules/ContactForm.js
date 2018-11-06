@@ -39,6 +39,7 @@ export default class ContactForm extends Component {
     render() {
         const { ...rest } = this.props;
         const { name, email, message } = this.state;
+        console.log("test");
         return (
             <form onSubmit={this.handleSubmit} {...rest}>
                 <h6>Get In Touch</h6>
