@@ -26,6 +26,7 @@
             text-align: center;
         }
         &__right {
+            min-width: 400px;
             max-width: 600px;
             flex-basis: 200px;
             flex-shrink: 1;
@@ -87,12 +88,11 @@
         color: $white;
     }
 
-    @media only screen and (min-width: 964px) {
+    @media only screen and (min-width: 979px) {
         &__content__left {
             text-align: left;
         }
         &__content__right {
-            min-width: 400px;
         }
         &__contact {
             text-align: left;
