@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Carousel from "nuka-carousel";
 
-export default class Slideshow extends Component {
+export default class GalleryCarousel extends Component {
     state = {
         selected: 0,
         slideIndex: 0
@@ -35,6 +35,7 @@ export default class Slideshow extends Component {
                     {...rest}>
                     {items.map((item, i) => (
                         <div
+                            key={`item_${i}`}
                             className="carousel__item"
                             onClick={() => this.handleClick(i)}
                             style={{

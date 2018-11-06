@@ -153,8 +153,10 @@ class App extends Component {
                         </div>
                     </div>
                 </div>
-                <div class="anchor" id="contact" />
-                <div className="hero" ref={ref => (this.hero = ref)}>
+                <div
+                    id="contact"
+                    className="hero"
+                    ref={ref => (this.hero = ref)}>
                     <div>
                         <div className="row">
                             <div className="columns">
@@ -168,8 +170,9 @@ class App extends Component {
                                             <span>Front-end Developer</span>
                                         </h1>
                                         <div>
-                                            {skills.map(skill => (
+                                            {skills.map((skill, i) => (
                                                 <Icon
+                                                    key={`skill_${i}`}
                                                     className="hero__skill"
                                                     path={skill.path}
                                                     fill={skill.fill}
@@ -238,14 +241,10 @@ class App extends Component {
                         </div>
                     </div>
                 </div>
-                <div ref={node => (this.sections.about = node)}>
-                    <div class="anchor" id="about" />
-
+                <div id="about" ref={node => (this.sections.about = node)}>
                     <About />
                 </div>
-                <div ref={node => (this.sections.work = node)}>
-                    <div class="anchor" id="work" />
-
+                <div id="work" ref={node => (this.sections.work = node)}>
                     <Work />
                 </div>
                 <div className="footer">

@@ -71,7 +71,9 @@ class Work extends Component {
                         };
 
                         return (
-                            <div className="medium-6 large-4 columns">
+                            <div
+                                className="medium-6 large-4 columns"
+                                key={`work_item${i}`}>
                                 <div className="work__item">
                                     <FlipCard canFlip={!isExternal}>
                                         <Front>
@@ -90,15 +92,18 @@ class Work extends Component {
                                             </div>
                                             <div className="work__item__title">
                                                 {item.name}
-                                                {item.skills.map(skill => (
-                                                    <Icon
-                                                        className="work__item__skill"
-                                                        path={skill.path}
-                                                        fill={fill}
-                                                        width={20}
-                                                        height={20}
-                                                    />
-                                                ))}
+                                                {item.skills.map(
+                                                    (skill, index) => (
+                                                        <Icon
+                                                            key={`icon_${index}`}
+                                                            className="work__item__skill"
+                                                            path={skill.path}
+                                                            fill={fill}
+                                                            width={20}
+                                                            height={20}
+                                                        />
+                                                    )
+                                                )}
                                             </div>
                                         </Front>
                                         <Back className="work__item__description">

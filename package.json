@@ -1,35 +1,31 @@
 {
-  "name": "profile",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "babel-polyfill": "^6.26.0",
-    "classnames": "^2.2.6",
-    "curved-carousel": "https://github.com/chris-rodgers/curved-carousel",
-    "ip": "^1.1.5",
-    "node-sass": "^4.9.4",
-    "nuka-carousel": "^4.4.1",
-    "proptypes": "^1.1.0",
-    "react": "^16.5.2",
-    "react-anchor-link-smooth-scroll": "^1.0.11",
-    "react-dom": "^16.5.2",
-    "react-pose": "^3.3.6",
-    "react-scripts": "2.0.5",
-    "styled-components": "^4.0.3"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+    "name": "profile",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "babel-polyfill": "^6.26.0",
+        "classnames": "^2.2.6",
+        "ip": "^1.1.5",
+        "node-sass": "^4.9.4",
+        "nuka-carousel": "^4.4.1",
+        "react": "^16.5.2",
+        "react-anchor-link-smooth-scroll": "^1.0.11",
+        "react-dom": "^16.5.2",
+        "react-scripts": "2.0.5"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ]
 }
