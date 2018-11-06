@@ -64,31 +64,24 @@ class Work extends Component {
                 </div>
                 <div className="row">
                     {workItems.map((item, i) => {
-                        const isExternal = Boolean(item.href);
-                        const anchorProps = isExternal && {
-                            href: item.href,
-                            target: "_blank"
-                        };
+                        const description = item.description ? (
+                            item.description
+                        ) : (
+                            <p>{`Information on ${item.name} coming soon`}</p>
+                        );
 
                         return (
                             <div
                                 className="medium-6 large-4 columns"
                                 key={`work_item${i}`}>
                                 <div className="work__item">
-                                    <FlipCard canFlip={!isExternal}>
+                                    <FlipCard canFlip={true}>
                                         <Front>
                                             <div className="work__item__image">
-                                                <a {...anchorProps}>
-                                                    <div className="work__item__overlay">
-                                                        {isExternal
-                                                            ? "Visit Site"
-                                                            : "Read More"}
-                                                    </div>
-                                                    <img
-                                                        src={item.thumbnail}
-                                                        alt=""
-                                                    />
-                                                </a>
+                                                <img
+                                                    src={item.thumbnail}
+                                                    alt=""
+                                                />
                                             </div>
                                             <div className="work__item__title">
                                                 {item.name}
@@ -108,10 +101,19 @@ class Work extends Component {
                                         </Front>
                                         <Back className="work__item__description">
                                             <h6>{item.name}</h6>
-                                            {item.description ||
-                                                `Information on ${
-                                                    item.name
-                                                } coming soon`}
+                                            {description}
+
+                                            <a
+                                                href={item.href}
+                                                target="_blank"
+                                                className="button button--hollow"
+                                                style={{
+                                                    visibility: item.href
+                                                        ? "visible"
+                                                        : "hidden"
+                                                }}>
+                                                Visit Site
+                                            </a>
                                         </Back>
                                     </FlipCard>
                                 </div>
