@@ -16,20 +16,7 @@ const items = [
     }
 ];
 class About extends Component {
-    state = {
-        selected: 0,
-        slideIndex: 0
-    };
-    handleAfterSlide = selected => {
-        console.log(selected);
-        this.setState({ selected: selected });
-    };
-    handleClick = slideIndex => {
-        this.setState({ slideIndex });
-    };
     render() {
-        const { selected, slideIndex } = this.state;
-
         return (
             <div className="about">
                 <div className="row text-center">

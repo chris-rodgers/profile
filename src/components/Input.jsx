@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import classnames from "classnames";
-import PropTypes from "prop-types";
 
 class Input extends Component {
     state = {
@@ -16,7 +14,7 @@ class Input extends Component {
     };
     handleChange = e => {
         const hasValue = Boolean(e.target.value);
-        if (hasValue != this.state.hasValue) {
+        if (hasValue !== this.state.hasValue) {
             this.setState({ hasValue });
         }
     };

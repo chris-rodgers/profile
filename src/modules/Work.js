@@ -55,10 +55,6 @@ const workItems = [
 
 class Work extends Component {
     render() {
-        const carouseProps = {
-            initialSlideHeight: 600,
-            wrapAround: true
-        };
         return (
             <div className="work">
                 <div className="row">
@@ -68,7 +64,6 @@ class Work extends Component {
                 </div>
                 <div className="row">
                     {workItems.map((item, i) => {
-                        const clipId = `clip-${item.name}`;
                         const isExternal = Boolean(item.href);
                         const anchorProps = isExternal && {
                             href: item.href,
@@ -90,8 +85,8 @@ class Work extends Component {
                                                             : "Read More"}
                                                     </div>
                                                     <img
-                                                        className=""
                                                         src={item.thumbnail}
+                                                        alt=""
                                                     />
                                                 </a>
                                             </div>

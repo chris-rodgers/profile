@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import classnames from "classnames";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { address } from "ip";
-import logo from "./logo.svg";
 import Work from "./modules/Work";
 import About from "./modules/About";
 import Input from "./components/Input";
@@ -77,12 +76,12 @@ class App extends Component {
             headerClasses = "header__container--white";
         }
 
-        if (this.state.headerClasses != headerClasses) {
+        if (this.state.headerClasses !== headerClasses) {
             this.setState({ headerClasses });
         }
 
         // Current Section
-        Object.keys(this.sections).map((key, i) => {
+        Object.keys(this.sections).forEach((key, i) => {
             const section = this.sections[key];
             const offsetHeight = section.offsetHeight - headerHeight;
             if (scrollY >= offsetHeight) {
@@ -94,7 +93,7 @@ class App extends Component {
             }
         });
 
-        if (this.state.currentSection != currentSection) {
+        if (this.state.currentSection !== currentSection) {
             this.setState({ currentSection });
         }
     };
@@ -228,7 +227,8 @@ class App extends Component {
                                         <div className="hero__photo_credit">
                                             <a
                                                 href="https://unsplash.com/photos/zkv-iOagJis?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-                                                target="_blank">
+                                                target="_blank"
+                                                rel="noopener noreferrer">
                                                 Photo by Julius Drost
                                             </a>
                                         </div>
