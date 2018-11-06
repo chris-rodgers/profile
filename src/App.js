@@ -180,7 +180,9 @@ class App extends Component {
                                         </div>
                                     </div>
                                     <div className="hero__content__right">
-                                        <ContactForm className="hero__contact text-center" />
+                                        <div className="hero__contact text-center">
+                                            <ContactForm />
+                                        </div>
                                         <div className="hero__photo_credit">
                                             <a
                                                 href="https://unsplash.com/photos/zkv-iOagJis?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"

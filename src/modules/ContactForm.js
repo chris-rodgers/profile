@@ -13,9 +13,12 @@ const encode = data => {
 
 export default class ContactForm extends Component {
     state = {
-        name: "",
-        email: "",
-        message: ""
+        formData: {
+            name: "",
+            email: "",
+            message: ""
+        },
+        outcome: ""
     };
 
     handleSubmit = e => {
@@ -25,59 +28,80 @@ export default class ContactForm extends Component {
             body: encode({
                 "form-name": "contact",
                 ip: address(),
-                ...this.state
+                ...this.state.formData
             })
         })
-            .then(() => alert("Success!"))
-            .catch(error => alert(error));
+            .then(() =>
+                this.setState({
+                    outcome: "Thanks, your message has been sent."
+                })
+            )
+            .catch(error =>
+                this.setState({
+                    outcome: "Sorry, there was a problem. Please try again."
+                })
+            );
 
         e.preventDefault();
     };
 
-    handleChange = e => this.setState({ [e.target.name]: e.target.value });
+    handleChange = e =>
+        this.setState({
+            formData: {
+                ...this.state.formData,
+                [e.target.name]: e.target.value
+            }
+        });
 
     render() {
         const { ...rest } = this.props;
-        const { name, email, message } = this.state;
-        console.log("test");
+        const { formData, outcome } = this.state;
+        const { name, email, message } = formData;
+
+        if (outcome) {
+            return <p className="text-center">{outcome}</p>;
+        }
+
         return (
-            <form onSubmit={this.handleSubmit} {...rest}>
-                <h6>Get In Touch</h6>
+            <form onSubmit={this.handleSubmit}>
+                <div>
+                    <h6>Get In Touch</h6>
 
-                <div>
-                    <Input
-                        type="text"
-                        name="name"
-                        id="name"
-                        label="Name"
-                        value={name}
-                        onChange={this.handleChange}
-                    />
-                </div>
-                <div>
-                    <Input
-                        type="email"
-                        name="email"
-                        id="email"
-                        label="Email"
-                        value={email}
-                        onChange={this.handleChange}
-                    />
-                </div>
-                <div>
-                    <Input
-                        type="text"
-                        name="message"
-                        id="message"
-                        rows="5"
-                        label="Message"
-                        element="textarea"
-                        value={message}
-                        onChange={this.handleChange}
-                    />
-                </div>
+                    <div>
+                        <Input
+                            type="text"
+                            name="name"
+                            id="name"
+                            label="Name"
+                            value={name}
+                            onChange={this.handleChange}
+                        />
+                    </div>
+                    <div>
+                        <Input
+                            type="email"
+                            name="email"
+                            id="email"
+                            label="Email"
+                            value={email}
+                            onChange={this.handleChange}
+                        />
+                    </div>
+                    <div>
+                        <Input
+                            type="text"
+                            name="message"
+                            id="message"
+                            rows="5"
+                            label="Message"
+                            element="textarea"
+                            value={message}
+                            onChange={this.handleChange}
+                        />
+                    </div>
 
-                <input type="submit" className="button button--accent" />
+                    <input type="submit" className="button button--accent" />
+                </div>
             </form>
         );
     }
