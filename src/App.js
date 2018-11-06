@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import classnames from "classnames";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import { address } from "ip";
 import Work from "./modules/Work";
 import About from "./modules/About";
-import Input from "./components/Input";
+import ContactForm from "./modules/ContactForm";
 import Icon, {
     html,
     javascript,
@@ -181,52 +180,7 @@ class App extends Component {
                                         </div>
                                     </div>
                                     <div className="hero__content__right">
-                                        <form
-                                            name="contact"
-                                            method="post"
-                                            className="hero__contact text-center">
-                                            <h6>Get In Touch</h6>
-                                            <input
-                                                type="hidden"
-                                                name="form-name"
-                                                value="contact"
-                                            />
-                                            <div>
-                                                <Input
-                                                    type="text"
-                                                    name="name"
-                                                    id="name"
-                                                    label="Name"
-                                                />
-                                            </div>
-                                            <div>
-                                                <Input
-                                                    type="email"
-                                                    name="email"
-                                                    id="email"
-                                                    label="Email"
-                                                />
-                                            </div>
-                                            <div>
-                                                <Input
-                                                    type="text"
-                                                    name="message"
-                                                    id="message"
-                                                    rows="5"
-                                                    label="Message"
-                                                    element={"textarea"}
-                                                />
-                                            </div>
-                                            <input
-                                                name="ip"
-                                                type="hidden"
-                                                value={address()}
-                                            />
-                                            <input
-                                                type="submit"
-                                                className="button button--accent"
-                                            />
-                                        </form>
+                                        <ContactForm className="hero__contact text-center" />
                                         <div className="hero__photo_credit">
                                             <a
                                                 href="https://unsplash.com/photos/zkv-iOagJis?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
