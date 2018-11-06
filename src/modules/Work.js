@@ -70,8 +70,6 @@ class Work extends Component {
                             target: "_blank"
                         };
 
-                        console.log(anchorProps);
-
                         return (
                             <div className="medium-6 large-4 columns">
                                 <div className="work__item">

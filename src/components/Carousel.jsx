@@ -7,7 +7,6 @@ export default class Slideshow extends Component {
         slideIndex: 0
     };
     handleAfterSlide = selected => {
-        console.log(selected);
         this.setState({ selected: selected });
     };
     handleClick = slideIndex => {
