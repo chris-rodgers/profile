@@ -103,6 +103,7 @@ class Work extends Component {
                                                         path={skill.path}
                                                         fill={fill}
                                                         width={20}
+                                                        height={20}
                                                     />
                                                 ))}
                                             </div>
