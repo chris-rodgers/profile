@@ -1,7 +1,10 @@
 .flip_card {
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
-    &--flipped .flip_card__inner {
+    &--flipped .flip_card__front {
         transform: rotateY(180deg);
+    }
+    &--flipped .flip_card__back {
+        transform: rotateY(0);
     }
     &--can_flip .flip_card__front {
         cursor: pointer;
@@ -12,8 +15,6 @@
     position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
 }
 
 .flip_card__front,
@@ -21,9 +22,12 @@
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
 }
 
 .flip_card__front {
+    transform: rotateY(0);
     z-index: 2;
 }
 
@@ -34,6 +38,6 @@
     height: 100%;
     position: absolute;
     background-color: $white;
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
     z-index: 1;
 }
