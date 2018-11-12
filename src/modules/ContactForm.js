@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { address } from "ip";
+import { Collapse } from "react-collapse";
 
 import Input from "../components/Input";
 
@@ -58,51 +59,58 @@ export default class ContactForm extends Component {
         const { formData, outcome } = this.state;
         const { name, email, message } = formData;
 
-        if (outcome) {
-            return <p className="text-center">{outcome}</p>;
-        }
-
         return (
-            <form onSubmit={this.handleSubmit}>
-                <div>
-                    <h6>Get In Touch</h6>
+            <Collapse isOpened={true}>
+                <div style={{ overflow: "hidden" }}>
+                    {outcome ? (
+                        <p className="text-center">{outcome}</p>
+                    ) : (
+                        <form onSubmit={this.handleSubmit}>
+                            <div>
+                                <h6>Get In Touch</h6>
 
-                    <div>
-                        <Input
-                            type="text"
-                            name="name"
-                            id="name"
-                            label="Name"
-                            value={name}
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                    <div>
-                        <Input
-                            type="email"
-                            name="email"
-                            id="email"
-                            label="Email"
-                            value={email}
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                    <div>
-                        <Input
-                            type="text"
-                            name="message"
-                            id="message"
-                            rows="5"
-                            label="Message"
-                            element="textarea"
-                            value={message}
-                            onChange={this.handleChange}
-                        />
-                    </div>
+                                <div>
+                                    <Input
+                                        type="text"
+                                        name="name"
+                                        id="name"
+                                        label="Name"
+                                        value={name}
+                                        onChange={this.handleChange}
+                                    />
+                                </div>
+                                <div>
+                                    <Input
+                                        type="email"
+                                        name="email"
+                                        id="email"
+                                        label="Email"
+                                        value={email}
+                                        onChange={this.handleChange}
+                                    />
+                                </div>
+                                <div>
+                                    <Input
+                                        type="text"
+                                        name="message"
+                                        id="message"
+                                        rows="5"
+                                        label="Message"
+                                        element="textarea"
+                                        value={message}
+                                        onChange={this.handleChange}
+                                    />
+                                </div>
 
-                    <input type="submit" className="button button--accent" />
+                                <input
+                                    type="submit"
+                                    className="button button--accent"
+                                />
+                            </div>
+                        </form>
+                    )}
                 </div>
-            </form>
+            </Collapse>
         );
     }
 }
