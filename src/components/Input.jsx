@@ -20,7 +20,7 @@ class Input extends Component {
     };
     render() {
         const { focussed, hasValue } = this.state;
-        const { label, element, ...rest } = this.props;
+        const { label, element, onChange, ...rest } = this.props;
         const labelClasses = classnames({
             overlay: true,
             active: Boolean(focussed || hasValue)
@@ -32,7 +32,10 @@ class Input extends Component {
                 {React.createElement(element, {
                     onFocus: this.handleFocus,
                     onBlur: this.handleBlur,
-                    onChange: this.handleChange,
+                    onChange: e => {
+                        onChange(e);
+                        this.handleChange(e);
+                    },
                     ...rest
                 })}
             </div>
@@ -41,6 +44,7 @@ class Input extends Component {
 }
 
 Input.defaultProps = {
+    onChange: function() {},
     element: "input"
 };
 

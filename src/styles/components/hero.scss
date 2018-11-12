@@ -6,11 +6,11 @@
     color: $white;
     padding: 10rem 0 5em;
     margin-bottom: $small-spacing;
-    // min-height: 100vh;
-    // display: flex;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
+    min-height: 700px;
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     &__content {
         display: flex;
@@ -64,6 +64,7 @@
         background-color: #000000;
         padding: $small-spacing $small-spacing 0;
         position: relative;
+        overflow: hidden;
     }
 
     // Photo credit
